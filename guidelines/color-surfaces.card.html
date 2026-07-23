@@ -1,0 +1,40 @@
+<!-- @dsCard group="Colors" viewport="700x176" name="Surfaces & text" subtitle="Semantic surfaces with the text tokens that sit on them." -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-page); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 18px; }
+  .tile { border-radius: var(--radius-md); padding: 16px; min-height: 104px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--border-subtle); }
+  .tile .lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: .04em; opacity: .8; }
+  .tile .h { font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; }
+  .tile .b { font-size: 12.5px; line-height: 1.4; }
+  .page { background: var(--surface-page); }
+  .card { background: var(--surface-card); box-shadow: var(--elevation-card); border-color: transparent; }
+  .soft { background: var(--surface-brand-soft); border-color: transparent; }
+  .deep { background: var(--surface-inverse); border-color: transparent; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="tile page">
+      <span class="lbl" style="color:var(--text-muted)">surface-page</span>
+      <div><div class="h" style="color:var(--text-heading)">Heading</div><div class="b" style="color:var(--text-body)">Body on page</div></div>
+    </div>
+    <div class="tile card">
+      <span class="lbl" style="color:var(--text-muted)">surface-card</span>
+      <div><div class="h" style="color:var(--text-heading)">Heading</div><div class="b" style="color:var(--text-muted)">Muted caption</div></div>
+    </div>
+    <div class="tile soft">
+      <span class="lbl" style="color:var(--brand-strong)">brand-soft</span>
+      <div><div class="h" style="color:var(--teal-900)">Heading</div><div class="b" style="color:var(--teal-800)">Tinted body</div></div>
+    </div>
+    <div class="tile deep">
+      <span class="lbl" style="color:var(--text-on-deep-muted)">surface-inverse</span>
+      <div><div class="h" style="color:#fff">Heading</div><div class="b" style="color:var(--text-on-deep)">On deep teal</div></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+/* Kaleyla's Cleaning — Radius
+   Soft, friendly corners. Pills for actions, rounded cards. */
+
+:root {
+  --radius-xs:   6px;
+  --radius-sm:   10px;
+  --radius-md:   14px;
+  --radius-lg:   18px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-3xl:  44px;
+  --radius-pill: 999px;
+  --radius-full: 9999px;
+
+  /* Semantic */
+  --radius-button: var(--radius-pill);
+  --radius-input:  var(--radius-md);
+  --radius-card:   var(--radius-xl);
+  --radius-chip:   var(--radius-pill);
+  --radius-image:  var(--radius-2xl);
+}

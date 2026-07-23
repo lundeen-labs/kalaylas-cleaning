@@ -1,0 +1,47 @@
+<!-- @dsCard group="Brand" viewport="700x230" name="Iconography — Lucide" subtitle="2px line icons, rounded caps. Feature glyphs in soft-teal tiles." -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-card); padding: 22px 24px; }
+  .feature { display: flex; gap: 14px; margin-bottom: 20px; }
+  .tile { width: 46px; height: 46px; border-radius: 14px; background: var(--surface-brand-soft); display: grid; place-items: center; color: var(--brand-strong); }
+  .tile svg { width: 24px; height: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 16px 8px; }
+  .ic { display: flex; flex-direction: column; align-items: center; gap: 7px; color: var(--text-muted); }
+  .ic svg { width: 22px; height: 22px; stroke-width: 2; }
+  .ic span { font-family: var(--font-mono); font-size: 8.5px; color: var(--text-faint); }
+</style>
+</head>
+<body>
+  <div class="feature">
+    <div class="tile"><i data-lucide="sparkles"></i></div>
+    <div class="tile"><i data-lucide="home"></i></div>
+    <div class="tile"><i data-lucide="building-2"></i></div>
+    <div class="tile"><i data-lucide="shield-check"></i></div>
+    <div class="tile"><i data-lucide="calendar-check"></i></div>
+  </div>
+  <div class="grid">
+    <div class="ic"><i data-lucide="sparkles"></i><span>sparkles</span></div>
+    <div class="ic"><i data-lucide="home"></i><span>home</span></div>
+    <div class="ic"><i data-lucide="building-2"></i><span>building-2</span></div>
+    <div class="ic"><i data-lucide="spray-can"></i><span>spray-can</span></div>
+    <div class="ic"><i data-lucide="shield-check"></i><span>shield-check</span></div>
+    <div class="ic"><i data-lucide="calendar-check"></i><span>calendar</span></div>
+    <div class="ic"><i data-lucide="clock"></i><span>clock</span></div>
+    <div class="ic"><i data-lucide="map-pin"></i><span>map-pin</span></div>
+    <div class="ic"><i data-lucide="phone"></i><span>phone</span></div>
+    <div class="ic"><i data-lucide="star"></i><span>star</span></div>
+    <div class="ic"><i data-lucide="check-circle-2"></i><span>check</span></div>
+    <div class="ic"><i data-lucide="leaf"></i><span>leaf</span></div>
+    <div class="ic"><i data-lucide="droplets"></i><span>droplets</span></div>
+    <div class="ic"><i data-lucide="heart-handshake"></i><span>handshake</span></div>
+    <div class="ic"><i data-lucide="brush-cleaning"></i><span>brush</span></div>
+    <div class="ic"><i data-lucide="wind"></i><span>wind</span></div>
+  </div>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

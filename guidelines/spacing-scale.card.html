@@ -1,0 +1,32 @@
+<!-- @dsCard group="Spacing" viewport="700x150" name="Spacing scale" subtitle="4px base grid. --space-1 (4px) → --space-12 (96px)." -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-card); padding: 20px 24px; }
+  .row { display: flex; align-items: flex-end; gap: 14px; }
+  .col { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; }
+  .bar { background: var(--teal-200); border-radius: 4px; width: 100%; }
+  .swatch { display: flex; align-items: flex-end; height: 96px; }
+  .tok { font-family: var(--font-mono); font-size: 9.5px; color: var(--text-muted); }
+  .val { font-family: var(--font-mono); font-size: 9px; color: var(--text-faint); }
+  .m { display: flex; flex-direction: column; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="col"><div class="swatch"><div class="bar" style="height:var(--space-1)"></div></div><div class="m"><span class="tok">space-1</span><span class="val">4</span></div></div>
+    <div class="col"><div class="swatch"><div class="bar" style="height:var(--space-2)"></div></div><div class="m"><span class="tok">space-2</span><span class="val">8</span></div></div>
+    <div class="col"><div class="swatch"><div class="bar" style="height:var(--space-3)"></div></div><div class="m"><span class="tok">space-3</span><span class="val">12</span></div></div>
+    <div class="col"><div class="swatch"><div class="bar" style="height:var(--space-4)"></div></div><div class="m"><span class="tok">space-4</span><span class="val">16</span></div></div>
+    <div class="col"><div class="swatch"><div class="bar" style="height:var(--space-6)"></div></div><div class="m"><span class="tok">space-6</span><span class="val">24</span></div></div>
+    <div class="col"><div class="swatch"><div class="bar" style="height:var(--space-7)"></div></div><div class="m"><span class="tok">space-7</span><span class="val">32</span></div></div>
+    <div class="col"><div class="swatch"><div class="bar" style="height:var(--space-8)"></div></div><div class="m"><span class="tok">space-8</span><span class="val">40</span></div></div>
+    <div class="col"><div class="swatch"><div class="bar" style="height:var(--space-9)"></div></div><div class="m"><span class="tok">space-9</span><span class="val">48</span></div></div>
+    <div class="col"><div class="swatch"><div class="bar" style="height:var(--space-10)"></div></div><div class="m"><span class="tok">space-10</span><span class="val">64</span></div></div>
+    <div class="col"><div class="swatch"><div class="bar" style="height:var(--space-12)"></div></div><div class="m"><span class="tok">space-12</span><span class="val">96</span></div></div>
+  </div>
+</body>
+</html>

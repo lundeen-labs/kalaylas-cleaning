@@ -1,0 +1,30 @@
+<!-- @dsCard group="Spacing" viewport="700x150" name="Motion" subtitle="Calm ease-out, gentle fades & slides. No bounce. Hover to preview." -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-card); padding: 22px 24px; }
+  .row { display: flex; gap: 18px; align-items: stretch; }
+  .demo { flex: 1; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+  .track { height: 30px; display: flex; align-items: center; }
+  .dot { width: 26px; height: 26px; border-radius: 8px; background: var(--brand); transform: translateX(0); }
+  .demo:hover .lift { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+  .demo:hover .slide { transform: translateX(140px); }
+  .demo:hover .fade { opacity: 1; }
+  .lift { transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+  .slide { transition: transform var(--dur-slow) var(--ease-out); }
+  .fade { opacity: 0.15; transition: opacity var(--dur-base) var(--ease-standard); }
+  .tok { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+  .val { font-family: var(--font-mono); font-size: 9px; color: var(--text-faint); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="demo"><span class="tok">lift · ease-out</span><div class="track"><div class="dot lift"></div></div><span class="val">220ms · cubic-bezier(.22,1,.36,1)</span></div>
+    <div class="demo"><span class="tok">slide · ease-out</span><div class="track"><div class="dot slide"></div></div><span class="val">340ms · gentle, no overshoot</span></div>
+    <div class="demo"><span class="tok">fade · standard</span><div class="track"><div class="dot fade"></div></div><span class="val">220ms · cubic-bezier(.4,0,.2,1)</span></div>
+  </div>
+</body>
+</html>

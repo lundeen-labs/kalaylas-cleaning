@@ -1,0 +1,33 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Brand — Teal ramp" subtitle="The brand spine. --brand is 500; --brand-deep is 900." -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-card); }
+  .ramp { display: flex; gap: 6px; padding: 18px; }
+  .sw { flex: 1; display: flex; flex-direction: column; gap: 7px; }
+  .chip { height: 62px; border-radius: 12px; border: 1px solid rgba(10,59,58,0.06); }
+  .meta { display: flex; flex-direction: column; gap: 1px; }
+  .tok { font-family: var(--font-mono); font-size: 10.5px; font-weight: 600; color: var(--text-body); }
+  .hex { font-family: var(--font-mono); font-size: 10px; color: var(--text-faint); text-transform: uppercase; }
+  .star { position: relative; }
+  .badge { position: absolute; top: 6px; left: 6px; font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; letter-spacing: .06em; background: #fff; color: var(--teal-700); padding: 2px 5px; border-radius: 999px; }
+</style>
+</head>
+<body>
+  <div class="ramp">
+    <div class="sw"><div class="chip" style="background:var(--teal-50)"></div><div class="meta"><span class="tok">50</span><span class="hex">#ECFBF8</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--teal-100)"></div><div class="meta"><span class="tok">100</span><span class="hex">#CFF3EE</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--teal-200)"></div><div class="meta"><span class="tok">200</span><span class="hex">#A3E7DD</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--teal-300)"></div><div class="meta"><span class="tok">300</span><span class="hex">#6BD6C9</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--teal-400)"></div><div class="meta"><span class="tok">400</span><span class="hex">#2FC1B2</span></div></div>
+    <div class="sw"><div class="chip star" style="background:var(--teal-500)"><span class="badge">BRAND</span></div><div class="meta"><span class="tok">500</span><span class="hex">#10B5A6</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--teal-600)"></div><div class="meta"><span class="tok">600</span><span class="hex">#0E978B</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--teal-700)"></div><div class="meta"><span class="tok">700</span><span class="hex">#0C7770</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--teal-800)"></div><div class="meta"><span class="tok">800</span><span class="hex">#0A5A57</span></div></div>
+    <div class="sw"><div class="chip star" style="background:var(--teal-900)"><span class="badge">DEEP</span></div><div class="meta"><span class="tok">900</span><span class="hex">#0A3B3A</span></div></div>
+  </div>
+</body>
+</html>

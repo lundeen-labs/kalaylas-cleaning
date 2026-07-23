@@ -1,0 +1,29 @@
+<!-- @dsCard group="Type" viewport="700x180" name="Body — Hanken Grotesk" subtitle="Calm, legible, roomy line-height for trust." -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-card); padding: 22px 24px; display: flex; gap: 28px; }
+  .lede { font-family: var(--font-sans); font-weight: 500; font-size: 19px; line-height: 1.5; color: var(--text-body); max-width: 360px; margin: 0 0 12px; }
+  .p { font-family: var(--font-sans); font-weight: 400; font-size: 15px; line-height: 1.65; color: var(--text-muted); max-width: 360px; margin: 0; }
+  .weights { display: flex; flex-direction: column; gap: 9px; border-left: 1px solid var(--border-subtle); padding-left: 22px; }
+  .wrow { display: flex; align-items: baseline; gap: 12px; }
+  .wname { font-family: var(--font-mono); font-size: 10px; color: var(--text-faint); width: 78px; }
+  .wsample { font-family: var(--font-sans); font-size: 16px; color: var(--text-body); }
+</style>
+</head>
+<body>
+  <div>
+    <p class="lede">Trusted, insured cleaners serving Mount Vernon and the Skagit Valley.</p>
+    <p class="p">We treat your home like it's our own — the same friendly team, every visit. Floors, baths, kitchen, and dusting, done right.</p>
+  </div>
+  <div class="weights">
+    <div class="wrow"><span class="wname">Regular · 400</span><span class="wsample" style="font-weight:400">The quiet of a clean home</span></div>
+    <div class="wrow"><span class="wname">Medium · 500</span><span class="wsample" style="font-weight:500">The quiet of a clean home</span></div>
+    <div class="wrow"><span class="wname">Semibold · 600</span><span class="wsample" style="font-weight:600">The quiet of a clean home</span></div>
+    <div class="wrow"><span class="wname">Bold · 700</span><span class="wsample" style="font-weight:700">The quiet of a clean home</span></div>
+  </div>
+</body>
+</html>

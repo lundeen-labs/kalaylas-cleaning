@@ -1,0 +1,33 @@
+/* Kaleyla's Cleaning — Motion
+   Calm and reassuring. Smooth ease-out, gentle slides and fades. No bounce,
+   no spring overshoot. Respect reduced-motion. */
+
+:root {
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);   /* @kind other */
+  --ease-out:      cubic-bezier(0.22, 1, 0.36, 1);  /* @kind other */ /* calm settle */
+  --ease-in:       cubic-bezier(0.5, 0, 0.9, 0.3);  /* @kind other */
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);  /* @kind other */
+
+  --dur-instant: 90ms;   /* @kind other */
+  --dur-fast:    150ms;  /* @kind other */
+  --dur-base:    220ms;  /* @kind other */
+  --dur-slow:    340ms;  /* @kind other */
+  --dur-slower:  520ms;  /* @kind other */
+
+  /* Common transitions */
+  --transition-color: color var(--dur-fast) var(--ease-standard),
+                      background-color var(--dur-fast) var(--ease-standard),
+                      border-color var(--dur-fast) var(--ease-standard);
+  --transition-transform: transform var(--dur-base) var(--ease-out);
+  --transition-shadow: box-shadow var(--dur-base) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-instant: 0ms;  /* @kind other */
+    --dur-fast: 0ms;     /* @kind other */
+    --dur-base: 0ms;     /* @kind other */
+    --dur-slow: 0ms;     /* @kind other */
+    --dur-slower: 0ms;   /* @kind other */
+  }
+}

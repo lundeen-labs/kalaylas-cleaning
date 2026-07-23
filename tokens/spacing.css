@@ -1,0 +1,36 @@
+/* Kaleyla's Cleaning — Spacing & Layout
+   4px base grid. Generous, calm rhythm. */
+
+:root {
+  --space-0:  0px;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-7:  32px;
+  --space-8:  40px;
+  --space-9:  48px;
+  --space-10: 64px;
+  --space-11: 80px;
+  --space-12: 96px;
+  --space-13: 128px;
+  --space-14: 160px;
+
+  /* Section rhythm */
+  --section-y:       96px;   /* vertical padding for marketing sections */
+  --section-y-tight: 64px;
+
+  /* Containers */
+  --container-sm: 640px;
+  --container-md: 820px;
+  --container-lg: 1080px;
+  --container-xl: 1240px;
+  --gutter:       24px;
+
+  /* Control sizing (buttons/inputs) */
+  --control-h-sm: 36px;
+  --control-h-md: 44px;   /* default — meets 44px touch target */
+  --control-h-lg: 54px;
+}

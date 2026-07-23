@@ -1,0 +1,44 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="Status & accent" subtitle="Success, warning, danger, info — plus the honey accent." -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-card); }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; padding: 18px; }
+  .col { display: flex; flex-direction: column; gap: 7px; }
+  .pair { display: flex; gap: 5px; }
+  .solid { height: 50px; flex: 2; border-radius: 11px; display: flex; align-items: center; justify-content: center; }
+  .soft { height: 50px; flex: 1; border-radius: 11px; border: 1px solid rgba(10,59,58,0.06); }
+  .glyph { color: #fff; font-size: 18px; line-height: 1; }
+  .name { font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--text-body); }
+  .hex { font-family: var(--font-mono); font-size: 9.5px; color: var(--text-faint); }
+  .meta { display: flex; flex-direction: column; gap: 1px; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="col">
+      <div class="pair"><div class="solid" style="background:var(--success)"><span class="glyph">✓</span></div><div class="soft" style="background:var(--success-soft)"></div></div>
+      <div class="meta"><span class="name">success</span><span class="hex">#18A05B</span></div>
+    </div>
+    <div class="col">
+      <div class="pair"><div class="solid" style="background:var(--warning)"><span class="glyph">!</span></div><div class="soft" style="background:var(--warning-soft)"></div></div>
+      <div class="meta"><span class="name">warning</span><span class="hex">#E0A23B</span></div>
+    </div>
+    <div class="col">
+      <div class="pair"><div class="solid" style="background:var(--danger)"><span class="glyph">×</span></div><div class="soft" style="background:var(--danger-soft)"></div></div>
+      <div class="meta"><span class="name">danger</span><span class="hex">#E0533D</span></div>
+    </div>
+    <div class="col">
+      <div class="pair"><div class="solid" style="background:var(--info)"><span class="glyph">i</span></div><div class="soft" style="background:var(--info-soft)"></div></div>
+      <div class="meta"><span class="name">info</span><span class="hex">#0E978B</span></div>
+    </div>
+    <div class="col">
+      <div class="pair"><div class="solid" style="background:var(--accent)"><span class="glyph" style="color:var(--teal-900)">★</span></div><div class="soft" style="background:var(--accent-soft)"></div></div>
+      <div class="meta"><span class="name">accent · honey</span><span class="hex">#E0B358</span></div>
+    </div>
+  </div>
+</body>
+</html>

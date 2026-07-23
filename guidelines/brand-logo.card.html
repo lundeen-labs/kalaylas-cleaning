@@ -1,0 +1,70 @@
+<!-- @dsCard group="Brand" viewport="700x240" name="Logo & wordmark" subtitle="Sparkle mark, primary lockup, and reversed-on-deep-teal" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-page); }
+  .wrap { display: flex; align-items: stretch; gap: 18px; padding: 22px; flex-wrap: wrap; }
+  .panel {
+    display: flex; align-items: center; gap: 14px;
+    padding: 22px 26px; border-radius: var(--radius-card);
+    background: var(--surface-card); border: 1px solid var(--border-subtle);
+    box-shadow: var(--elevation-card);
+  }
+  .panel.deep { background: var(--surface-inverse); border-color: transparent; }
+  .lockup { display: flex; align-items: center; gap: 13px; }
+  .lockup .mark { width: 40px; height: 40px; flex: none; }
+  .names { display: flex; flex-direction: column; gap: 3px; line-height: 1; }
+  .word {
+    font-family: var(--font-display); font-weight: 800; font-size: 27px;
+    letter-spacing: -0.02em; color: var(--text-heading);
+  }
+  .deep .word { color: #fff; }
+  .eyebrow {
+    font-family: var(--font-mono); font-weight: 600; font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--brand-strong);
+  }
+  .deep .eyebrow { color: var(--teal-300); }
+  .marks { display: flex; align-items: center; gap: 16px; }
+  .marks img, .marks svg { width: 48px; height: 48px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <div class="lockup">
+        <svg class="mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 8 Q24.5 23.5 40 27 Q24.5 30.5 21 46 Q17.5 30.5 2 27 Q17.5 23.5 21 8 Z" fill="#10B5A6"/>
+          <path d="M39 4 Q40.5 10.5 47 12 Q40.5 13.5 39 20 Q37.5 13.5 31 12 Q37.5 10.5 39 4 Z" fill="#0A3B3A"/>
+        </svg>
+        <div class="names">
+          <span class="word">Kaleyla's</span>
+          <span class="eyebrow">Cleaning Service</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel deep">
+      <div class="lockup">
+        <svg class="mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 8 Q24.5 23.5 40 27 Q24.5 30.5 21 46 Q17.5 30.5 2 27 Q17.5 23.5 21 8 Z" fill="#34C2B3"/>
+          <path d="M39 4 Q40.5 10.5 47 12 Q40.5 13.5 39 20 Q37.5 13.5 31 12 Q37.5 10.5 39 4 Z" fill="#CFF3EE"/>
+        </svg>
+        <div class="names">
+          <span class="word">Kaleyla's</span>
+          <span class="eyebrow">Cleaning Service</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="marks">
+        <img src="../assets/logo/mark.svg" alt="mark">
+        <img src="../assets/logo/mark-tile.svg" alt="mark tile" style="border-radius:16px">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

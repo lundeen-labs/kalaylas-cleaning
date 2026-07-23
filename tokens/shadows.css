@@ -1,0 +1,35 @@
+/* Kaleyla's Cleaning — Elevation
+   Soft, low-contrast shadows tinted with deep teal. Nothing harsh — calm depth.
+   Shadow color is a teal-black so elevation feels cohesive with the brand. */
+
+:root {
+  --shadow-color: 180 60% 12%;   /* HSL of deep teal for tinted shadows */
+
+  --shadow-xs:
+    0 1px 2px hsl(var(--shadow-color) / 0.06);
+  --shadow-sm:
+    0 1px 2px hsl(var(--shadow-color) / 0.06),
+    0 2px 6px hsl(var(--shadow-color) / 0.06);
+  --shadow-md:
+    0 2px 4px hsl(var(--shadow-color) / 0.05),
+    0 8px 20px hsl(var(--shadow-color) / 0.08);
+  --shadow-lg:
+    0 4px 8px hsl(var(--shadow-color) / 0.05),
+    0 18px 40px hsl(var(--shadow-color) / 0.10);
+  --shadow-xl:
+    0 8px 16px hsl(var(--shadow-color) / 0.06),
+    0 32px 64px hsl(var(--shadow-color) / 0.14);
+
+  /* Brand glow for primary CTA hover */
+  --shadow-brand:
+    0 8px 24px color-mix(in srgb, var(--teal-500) 38%, transparent);
+
+  /* Inset for pressed / inputs */
+  --shadow-inset: inset 0 1px 2px hsl(var(--shadow-color) / 0.08);
+
+  /* Semantic */
+  --elevation-card:    var(--shadow-md);
+  --elevation-raised:  var(--shadow-lg);
+  --elevation-overlay: var(--shadow-xl);
+  --elevation-flat:    var(--shadow-xs);
+}

@@ -1,0 +1,81 @@
+/* Kaleyla's Cleaning — Typography
+   Display: Schibsted Grotesk · Body/UI: Hanken Grotesk · Mono: Spline Sans Mono
+   Type is calm and roomy: generous line-height on body, tight tracking on display. */
+
+:root {
+  /* Families */
+  --font-display: 'Schibsted Grotesk', 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --font-sans:    'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:    'Spline Sans Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Weights */
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-extra:    800;
+
+  /* Type scale (px). Body anchored at 16. */
+  --text-2xs:  11px;
+  --text-xs:   12.5px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   18px;
+  --text-lg:   20px;
+  --text-xl:   24px;
+  --text-2xl:  30px;
+  --text-3xl:  38px;
+  --text-4xl:  48px;
+  --text-5xl:  60px;
+  --text-6xl:  76px;
+  --text-7xl:  92px;
+
+  /* Line heights */
+  --leading-none:    1;
+  --leading-tight:   1.1;
+  --leading-snug:    1.22;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+
+  /* Letter spacing */
+  --tracking-tighter: -0.03em;
+  --tracking-tight:   -0.018em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.02em;
+  --tracking-wider:   0.08em;   /* eyebrows / mono labels */
+  --tracking-widest:  0.16em;
+
+  /* ---- Composite semantic roles ---- */
+  --font-eyebrow: var(--weight-semibold) var(--text-xs)/1 var(--font-mono);
+
+  /* Headings use display family + tight tracking; set per element below */
+  --display-tracking: var(--tracking-tight);
+  --display-leading:  var(--leading-tight);
+}
+
+/* Optional helper classes consumers may use directly. Tokens remain the contract. */
+.ksl-eyebrow {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--brand-strong);
+}
+.ksl-display {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  color: var(--text-heading);
+  text-wrap: balance;
+}
+.ksl-body {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-body);
+  text-wrap: pretty;
+}

@@ -1,0 +1,10 @@
+/* Kaleyla's Cleaning — Webfonts
+   Brand faces are Google Fonts, loaded via CDN @import (chained from styles.css).
+   - Schibsted Grotesk  → display / headings (friendly, confident grotesque)
+   - Hanken Grotesk     → body & UI (calm, highly legible humanist sans)
+   - Spline Sans Mono   → eyebrows, labels, prices, technical detail
+   NOTE: these are loaded from fonts.gstatic.com, not self-hosted. If you want
+   self-hosted .woff2 binaries shipped with the system, supply them and we will
+   swap these @import lines for local @font-face rules. */
+
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500;600;700&display=swap');

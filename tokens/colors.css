@@ -1,0 +1,105 @@
+/* Kaleyla's Cleaning — Color System
+   Calm, trustworthy, fresh. Teal-forward with quiet warm-cool neutrals and a
+   sparing honey accent. Base ramps first, then semantic aliases.
+   Use SEMANTIC tokens in product code; reach for raw ramps only when building
+   foundations or one-off treatments. */
+
+:root {
+  /* ----- Brand: Teal ("Marine") ----- */
+  --teal-50:  #ECFBF8;
+  --teal-100: #CFF3EE;
+  --teal-200: #A3E7DD;
+  --teal-300: #6BD6C9;
+  --teal-400: #2FC1B2;
+  --teal-500: #10B5A6;  /* primary brand */
+  --teal-600: #0E978B;
+  --teal-700: #0C7770;
+  --teal-800: #0A5A57;
+  --teal-900: #0A3B3A;  /* deep ink-teal — dark sections, brand headings */
+
+  /* ----- Warm accent: Honey (used sparingly: ratings, highlights) ----- */
+  --honey-100: #F8EFD8;
+  --honey-300: #ECCF8A;
+  --honey-500: #E0B358;
+  --honey-700: #B8893A;
+
+  /* ----- Neutrals: faint teal-cool slate, kept friendly not clinical ----- */
+  --neutral-0:   #FFFFFF;
+  --neutral-50:  #F7F9F8;
+  --neutral-100: #EEF2F1;
+  --neutral-200: #E1E7E6;
+  --neutral-300: #CDD6D4;
+  --neutral-400: #A7B3B1;
+  --neutral-500: #7E8E8B;
+  --neutral-600: #5C6B69;
+  --neutral-700: #3F4D4B;
+  --neutral-800: #283533;
+  --neutral-900: #14201F;
+  --ink:         #0C1817;  /* near-black text */
+
+  /* ----- Status ----- */
+  --green-100: #DAF3E6;
+  --green-500: #18A05B;
+  --green-700: #0F7341;
+  --amber-100: #FBEFCF;
+  --amber-500: #E0A23B;
+  --amber-700: #9C6B16;
+  --red-100:   #FBE3DD;
+  --red-500:   #E0533D;
+  --red-700:   #A23323;
+
+  /* ===================== SEMANTIC ALIASES ===================== */
+
+  /* Brand */
+  --brand:           var(--teal-500);
+  --brand-strong:    var(--teal-600);
+  --brand-pressed:   var(--teal-700);
+  --brand-deep:      var(--teal-900);
+  --brand-tint:      var(--teal-100);
+  --brand-tint-soft: var(--teal-50);
+  --accent:          var(--honey-500);
+  --accent-soft:     var(--honey-100);
+
+  /* Surfaces */
+  --surface-page:     var(--neutral-50);
+  --surface-card:     var(--neutral-0);
+  --surface-sunken:   var(--neutral-100);
+  --surface-raised:   var(--neutral-0);
+  --surface-brand-soft: var(--teal-50);
+  --surface-brand:    var(--teal-500);
+  --surface-inverse:  var(--teal-900);   /* deep teal sections */
+  --surface-inverse-2: #082E2D;
+
+  /* Text */
+  --text-strong:  var(--ink);
+  --text-heading: var(--teal-900);       /* brand-tinted headings */
+  --text-body:    var(--neutral-800);
+  --text-muted:   var(--neutral-600);
+  --text-faint:   var(--neutral-500);
+  --text-on-brand: #FFFFFF;
+  --text-on-deep:  var(--teal-50);
+  --text-on-deep-muted: #8FB6B2;
+  --text-inverse:  #F2FBF9;
+  --text-link:     var(--teal-700);
+
+  /* Borders & lines */
+  --border-subtle:  var(--neutral-200);
+  --border-default: var(--neutral-300);
+  --border-strong:  var(--neutral-400);
+  --border-brand:   var(--teal-500);
+  --divider:        var(--neutral-200);
+
+  /* Focus ring */
+  --ring: color-mix(in srgb, var(--teal-500) 45%, transparent);
+  --ring-offset: var(--neutral-0);
+
+  /* Status semantic */
+  --success: var(--green-500);
+  --success-soft: var(--green-100);
+  --warning: var(--amber-500);
+  --warning-soft: var(--amber-100);
+  --danger:  var(--red-500);
+  --danger-soft: var(--red-100);
+  --info: var(--teal-600);
+  --info-soft: var(--teal-50);
+}

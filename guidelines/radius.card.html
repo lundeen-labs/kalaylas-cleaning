@@ -1,0 +1,28 @@
+<!-- @dsCard group="Spacing" viewport="700x150" name="Radius" subtitle="Soft, friendly corners. Buttons pill, cards 24px." -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-card); padding: 20px 24px; }
+  .row { display: flex; gap: 16px; align-items: flex-end; }
+  .col { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+  .box { width: 76px; height: 64px; background: var(--surface-brand-soft); border: 1.5px solid var(--teal-300); border-bottom: none; border-right: none; }
+  .tok { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+  .val { font-family: var(--font-mono); font-size: 9px; color: var(--text-faint); }
+  .m { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="col"><div class="box" style="border-top-left-radius:var(--radius-xs)"></div><div class="m"><span class="tok">xs</span><span class="val">6</span></div></div>
+    <div class="col"><div class="box" style="border-top-left-radius:var(--radius-sm)"></div><div class="m"><span class="tok">sm</span><span class="val">10</span></div></div>
+    <div class="col"><div class="box" style="border-top-left-radius:var(--radius-md)"></div><div class="m"><span class="tok">md · input</span><span class="val">14</span></div></div>
+    <div class="col"><div class="box" style="border-top-left-radius:var(--radius-lg)"></div><div class="m"><span class="tok">lg</span><span class="val">18</span></div></div>
+    <div class="col"><div class="box" style="border-top-left-radius:var(--radius-xl)"></div><div class="m"><span class="tok">xl · card</span><span class="val">24</span></div></div>
+    <div class="col"><div class="box" style="border-top-left-radius:var(--radius-2xl)"></div><div class="m"><span class="tok">2xl · image</span><span class="val">32</span></div></div>
+    <div class="col"><div class="box" style="border-radius:var(--radius-pill);width:64px"></div><div class="m"><span class="tok">pill · button</span><span class="val">999</span></div></div>
+  </div>
+</body>
+</html>
