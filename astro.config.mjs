@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
+import sitemap from '@astrojs/sitemap'
 
 /**
  * Static output. Every page is rendered to HTML at build time and served as a
@@ -28,7 +29,28 @@ export default defineConfig({
   base: '/kaleylas-cleaning',
   trailingSlash: 'ignore',
   output: 'static',
-  integrations: [react()],
+  integrations: [
+    react(),
+    /**
+     * The sitemap is how Google learns the Spanish page exists.
+     *
+     * Passing `i18n` makes it emit xhtml:link alternates inside the sitemap, so
+     * each URL declares its language and points at its counterpart. Google's
+     * localised-versions guidance lists the sitemap as one of the three valid
+     * ways to signal alternates, alongside the hreflang tags already in the
+     * page head — doing both is belt and braces, and costs nothing.
+     *
+     * Without this, a crawler has to discover /es/ by following the language
+     * link, which it may or may not do promptly on a brand-new site with no
+     * inbound links.
+     */
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: { en: 'en-US', es: 'es-US' },
+      },
+    }),
+  ],
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],

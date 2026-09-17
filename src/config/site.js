@@ -32,9 +32,9 @@ export const site = {
   origin: 'https://kaleylascleaning.com',
 
   // ---------------------------------------------------------------- contact
-  // A phone number the owner actually answers. Format E.164 for the href and
-  // a human string for display, e.g. { href: '+13605551234', display: '(360) 555-1234' }.
-  phone: null,
+  // A phone number the owner actually answers. E.164 for the href, human string
+  // for display. Supplied 2026-09-16.
+  phone: { href: '+13603332732', display: '(360) 333-2732' },
 
   // A mailbox that receives mail. The prototype used hola@kaleylas.com, and
   // kaleylas.com does not resolve.
