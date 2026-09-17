@@ -10,7 +10,7 @@
 import React from 'react'
 import * as ns from '../lib/ds.js'
 import { Container, Section } from '../lib/parts.jsx'
-import { site, L } from '../config/site.js'
+import { site, L, quoteHref } from '../config/site.js'
 
 export function CTABand({ lang }) {
   const { Button, Icon } = ns;
@@ -27,7 +27,11 @@ export function CTABand({ lang }) {
               {L(lang, 'Get a free, no-obligation quote today — most replies within the hour.', 'Pide tu cotización gratis hoy — casi siempre respondemos en menos de una hora.')}
             </p>
             <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 28, flexWrap: 'wrap' }}>
-              <Button size="lg" leadingIcon={<Icon name="sparkles" size={20} />}>{L(lang, 'Get a free quote', 'Cotización gratis')}</Button>
+              {quoteHref() && (
+                <Button size="lg" href={quoteHref()} leadingIcon={<Icon name="sparkles" size={20} />}>
+                  {L(lang, 'Get a free quote', 'Cotización gratis')}
+                </Button>
+              )}
               {site.phone && (
                 <Button size="lg" variant="secondary" leadingIcon={<Icon name="phone" size={18} />} href={`tel:${site.phone.href}`}>
                   {site.phone.display}

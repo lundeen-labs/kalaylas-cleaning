@@ -40,6 +40,17 @@ export const site = {
   // kaleylas.com does not resolve.
   email: null,
 
+  /**
+   * Online booking page, if the business has one — a Setmore/Calendly-style
+   * link. This is what every "Get a free quote" button points at.
+   *
+   * Until it is set the buttons fall back to the phone number, and if there is
+   * no phone either they are not rendered at all. They must never render as a
+   * dead <button>: with no JavaScript on the site nothing would happen, and for
+   * a while every call to action on the live site did exactly that.
+   */
+  booking: null,
+
   // Street address. Optional: many cleaning businesses are service-area only
   // and deliberately do not publish one. If the business has a Google Business
   // Profile with a hidden address, leave this null and keep `serviceArea`.
@@ -134,6 +145,17 @@ export const L = (lang, en, es) => (lang === 'es' ? es : en)
  * Everything still missing before the site can go live. Used by the honesty
  * check in scripts/check-honest.mjs and printed at the end of every build.
  */
+/**
+ * Where a "get a quote" click should go, best option first. Returns null when
+ * there is nowhere real to send someone, and the button is then omitted.
+ */
+export function quoteHref() {
+  if (site.booking) return site.booking
+  if (site.phone) return `tel:${site.phone.href}`
+  if (site.email) return `mailto:${site.email}`
+  return null
+}
+
 export function outstanding() {
   const missing = []
   if (!site.phone) missing.push('phone — a number the owner answers')
@@ -141,5 +163,6 @@ export function outstanding() {
   if (!site.pricing) missing.push('pricing — per-visit rates, or decide to omit the section')
   if (!site.claims.licensedAndInsured) missing.push('confirm: licensed & insured (legal claim)')
   if (!site.social.googleBusiness) missing.push('Google Business Profile URL (drives local search)')
+  if (!site.booking) missing.push('online booking link, if she has one (the quote buttons use it)')
   return missing
 }

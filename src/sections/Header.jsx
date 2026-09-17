@@ -10,11 +10,11 @@
 import React from 'react'
 import * as ns from '../lib/ds.js'
 import { Container } from '../lib/parts.jsx'
-import { site, L } from '../config/site.js'
+import { site, L, quoteHref } from '../config/site.js'
 import { href } from '../lib/href.js'
 
 export function Header({ lang }) {
-  const { Logo, Button, IconButton, Icon } = ns;
+  const { Logo, Button, Icon } = ns;
   const links = [
     [L(lang, 'Services', 'Servicios'), '#services'],
     [L(lang, 'Pricing', 'Precios'), '#pricing'],
@@ -47,8 +47,18 @@ export function Header({ lang }) {
                 <Icon name="phone" size={15} /> {site.phone.display}
               </a>
             )}
-            <Button leadingIcon={<Icon name="sparkles" size={18} />}>{L(lang, 'Get a free quote', 'Cotización gratis')}</Button>
-            <IconButton className="hdr__menu" variant="outline" label="Menu"><Icon name="menu" size={20} /></IconButton>
+            {/* Was a <button> with no handler and no href. The site ships no
+                JavaScript, so it did nothing at all when clicked. */}
+            {quoteHref() && (
+              <Button href={quoteHref()} leadingIcon={<Icon name="sparkles" size={18} />}>
+                {L(lang, 'Get a free quote', 'Cotización gratis')}
+              </Button>
+            )}
+            {/* The hamburger is gone. It opened nothing - the site ships no
+                JavaScript - and it was redundant anyway: the four nav links stay
+                visible at every width down to 320px, and the page is a single
+                scroll of anchors. A control that looks interactive and does
+                nothing is worse than no control. */}
           </div>
         </div>
       </Container>

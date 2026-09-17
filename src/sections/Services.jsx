@@ -48,7 +48,8 @@ function ServiceCard({ icon, title, desc, items }) {
           ))}
         </ul>
         <div style={{ marginTop: 6 }}>
-          <Button variant="outline" trailingIcon={<Icon name="arrow-right" size={18} />}>{title}</Button>
+          {/* Sends the reader to the pricing table rather than nowhere. */}
+          <Button variant="outline" href="#pricing" trailingIcon={<Icon name="arrow-right" size={18} />}>{title}</Button>
         </div>
       </div>
     </Card>

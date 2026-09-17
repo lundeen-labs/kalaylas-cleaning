@@ -10,7 +10,7 @@
 import React from 'react'
 import * as ns from '../lib/ds.js'
 import { Container, Photo, Section } from '../lib/parts.jsx'
-import { site, L } from '../config/site.js'
+import { site, L, quoteHref } from '../config/site.js'
 
 export function Hero({ lang }) {
   const { Button, Icon, Avatar, Rating } = ns;
@@ -32,8 +32,16 @@ export function Hero({ lang }) {
                 : 'Limpieza cuidadosa y confiable para casas y oficinas — el mismo equipo bilingüe y amable, en cada visita.')}
             </p>
             <div className="hero__cta">
-              <Button size="lg" leadingIcon={<Icon name="sparkles" size={20} />}>{L(lang, 'Get a free quote', 'Pide tu cotización')}</Button>
-              <Button size="lg" variant="secondary" trailingIcon={<Icon name="arrow-right" size={18} />}>{L(lang, "See what's included", 'Qué incluye')}</Button>
+              {quoteHref() && (
+                <Button size="lg" href={quoteHref()} leadingIcon={<Icon name="sparkles" size={20} />}>
+                  {L(lang, 'Get a free quote', 'Pide tu cotización')}
+                </Button>
+              )}
+              {/* The secondary action scrolls to the services section, which is
+                  on the page already - no JavaScript needed. */}
+              <Button size="lg" variant="secondary" href="#services" trailingIcon={<Icon name="arrow-right" size={18} />}>
+                {L(lang, "See what's included", 'Qué incluye')}
+              </Button>
             </div>
             {/* "Licensed & insured" and "Satisfaction guaranteed" are claims a
                 customer can act on, so each is gated on site.claims and simply

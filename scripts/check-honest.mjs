@@ -97,6 +97,19 @@ for (const page of pages) {
     failures.push(`${rel}: loads ${scripts.length} script(s) — ${scripts.join(', ')}`)
   }
 
+  // A site with no JavaScript has nothing to handle a click, so a <button> on
+  // it is inert by construction. For a while every "Get a free quote" on the
+  // live site was exactly that - eight dead buttons, and no way for a visitor
+  // to actually get in touch. Every interactive element here must be a link or
+  // a native control that works on its own.
+  const buttons = (html.match(/<button\b/g) || []).length
+  if (buttons) {
+    failures.push(
+      `${rel}: ${buttons} <button> element(s). With no JavaScript on the page ` +
+        'nothing can respond to them - use a link, or a native control.',
+    )
+  }
+
   const lang = html.match(/<html lang="([^"]+)"/)?.[1]
   const expected = rel.startsWith('es') ? 'es' : 'en'
   if (lang !== expected) failures.push(`${rel}: <html lang="${lang}">, expected "${expected}"`)

@@ -10,7 +10,7 @@
 import React from 'react'
 import * as ns from '../lib/ds.js'
 import { Container, Section, SectionHeading } from '../lib/parts.jsx'
-import { site, L } from '../config/site.js'
+import { site, L, quoteHref } from '../config/site.js'
 
 function PlanCard({ plan, lang }) {
   const { Card, Button, Badge, Icon } = ns;
@@ -34,7 +34,12 @@ function PlanCard({ plan, lang }) {
           <li key={f}><Icon name="check" size={18} strokeWidth={2.5} /> {f}</li>
         ))}
       </ul>
-      <Button variant={plan.featured ? 'primary' : 'secondary'} fullWidth>{plan.cta}</Button>
+      {/* Every plan's button is the same conversion action: get in touch. */}
+      {quoteHref() && (
+        <Button href={quoteHref()} variant={plan.featured ? 'primary' : 'secondary'} fullWidth>
+          {plan.cta}
+        </Button>
+      )}
     </Card>
   );
 }
