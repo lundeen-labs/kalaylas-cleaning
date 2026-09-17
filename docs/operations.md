@@ -314,22 +314,97 @@ Position it as a **documented process**, never a medical outcome.
 
 ---
 
+---
+
+## 7. Rental equipment — real rates at her actual store
+
+Read directly from Home Depot's product pages with the store set to
+**Burlington #8561, 2001 Marketplace Drive, Burlington WA 98233 — rental desk
+(360) 707-5468**, which is the nearest rental centre to Mount Vernon. These are
+that store's prices, not a national average.
+
+| Machine | 4 hours | Per day | Per week | 4 weeks |
+|---|---|---|---|---|
+| **Rug Doctor WT-R2A** carpet cleaner | $28 | **$40** | $160 | $480 |
+| **Eurosteam US6100HD** tile & grout steam cleaner | $62 | **$89** | $356 | $1,068 |
+| **Clarke** carpet extractor *with heater*, 13 gal, 100 PSI | $69 | **$99** | $396 | $1,188 |
+| **Nilfisk-Advance** hard-floor auto scrubber, 5,500 sq ft/hr | $69 | **$99** | $396 | $1,188 |
+
+Notes that change the plan:
+
+- **The weekly rate is four days' money for seven days.** Any job or cluster of
+  jobs spanning more than four days should be rented weekly, never daily.
+- **The Clarke requires a wand accessory** that is not included in the rate.
+  Ask at the desk and price it in.
+- **The Rug Doctor cannot be reserved online** — "due to demand, this unit is not
+  available for online reservations. Call or visit the store." Plan around that
+  on a Saturday.
+- Credit cards only, no cash, and valid ID is required to rent.
+
+### Buy versus rent, with a real purchase price
+
+The comparable machine to buy is the **BISSELL Big Green Clean Machine
+Professional at $429** (the Pet Professional is $459), both listed at Home Depot
+on 2026-09-17.
+
+Against the Rug Doctor's **$40/day** rental, that is **$429 ÷ $40 = 11 rentals**
+to break even — and cleaning solution costs the same either way. Owning then
+adds maintenance, storage and the risk of a repair between jobs; renting adds a
+round trip to Burlington each time.
+
+**So: rent until carpet work is running about once a month, then buy.** Eleven
+jobs is roughly a year of occasional carpet add-ons, and a machine that sits
+unused for eleven months is worse than a rental.
+
+**The Clarke at $99/day is a different class of machine** — heated, 100 PSI,
+13-gallon — and has no $429 equivalent. Rent that one for the jobs that need it
+and bill it as its own line on the invoice. A $99 rental buried inside a $400
+flat price is a quarter of that job's profit.
+
+**Still not priced:** air movers and dehumidifiers (the drying equipment rule in
+§4 depends on having them), floor buffers and pressure washers. Sunbelt and
+United Rentals publish nothing without a quote request tied to a live session.
+Those are a phone call to the Burlington desk, not a research task.
+
+---
+
 ## Open items
 
-Being closed by a follow-up research pass:
+Closed since the first draft, and now stated at full confidence in §4:
 
-- Exact Home Depot / Sunbelt / United Rentals rates for air movers,
-  dehumidifiers, floor scrubbers and steam cleaners; purchase prices for the
-  BG10 and Rug Doctor Pro; and the resulting buy-versus-rent break-even.
-  *Confirmed so far: Rug Doctor and BISSELL Big Green both rent at $39.99/24 hr.
-  Home Depot Burlington Tool Rental, (360) 707-5468.*
-- Per-room and per-square-foot cleaning **time** norms — the production rates
-  that decide whether per-room or per-square-foot pricing is right.
-- Four safety facts stated at lower confidence above: the food-contact sanitiser
-  log-reduction figure, quat toxicity in cats, wool carpet pH limits, and the
-  exact OSHA obligations for a sole proprietor.
+- **Quats and cats is real.** The Merck Veterinary Manual documents cationic
+  detergent toxicosis in cats, with oral ulceration, CNS depression, hypotension
+  and seizures, and states cats are at increased risk of oral exposure
+  *"because of their grooming habits"*. The rule stands: pets off any treated
+  surface until it is fully dry.
+- **OSHA's consumer-product exemption does not cover her if she hires.** The
+  exemption at 29 CFR 1910.1200(b)(6)(ix) applies only where the employee's
+  *"duration and frequency of exposure"* is no greater than a consumer's. Using
+  bleach for hours a day at commercial intensity is outside it, so "we only buy
+  store-bought products" is not a defence.
+- **Bloodborne Pathogens (29 CFR 1910.1030) attaches** when a worker's duties
+  create *"reasonably anticipated"* contact with blood or other potentially
+  infectious material — not from ordinary housekeeping.
+- **A sole proprietor with no employees is not covered by the OSH Act at all**
+  (29 CFR 1975.4). That changes the hour she hires one person. There is no
+  revenue test, no hours test, no entity-type test.
+- **Wool:** WoolSafe's own 2020 booklet publishes no numeric pH. What it does
+  say is that wool chemicals must be of *"low alkalinity"* with no added
+  bleaches, because *"high alkalinity ... can cause colour bleeding ... and in
+  extreme cases yellowing and weakening of wool fibres"*, and that any heat
+  applied must be low. Treat the practical rule as the deliverable; there is no
+  published number to cite.
 
-Needs a phone call, not research:
+Still open:
 
-- **Washington's limits, if any, on cancellation and no-show fees** — verify
-  before she publishes a number.
+- **The food-contact sanitiser log-reduction figure.** The governing document is
+  now identified precisely — **EPA OCSPP 810.2300**, *"Sanitizers for Use on
+  Hard Surfaces — Efficacy Data Recommendations"* (Sept 2012), docket
+  `EPA-HQ-OPPT-2009-0150-0022` — but regulations.gov returns 403 to automated
+  fetch. The 3-log / 99.9% figure is the **non**-food-contact bar and should not
+  be quoted for kitchen counters. Do not publish a number until this is read.
+- **Per-room and per-square-foot cleaning time norms** (production rates). Not
+  retrieved — the research session's search budget was exhausted.
+- **Air mover, dehumidifier, buffer and pressure-washer rental rates.**
+- **Washington's limits, if any, on cancellation and no-show fees.** Verify
+  before she publishes a figure.
