@@ -112,20 +112,43 @@ if (failures.length) {
 // Astro emits the React client runtime because the integration is registered,
 // even though no component hydrates, so nothing ever links to it. Uploading
 // 220 KB of unreachable JavaScript on every deploy is just untidy; it goes.
+// Match the FILENAME, not a path anchored at the root: on a project Pages site
+// every href is prefixed with the base (/kaleylas-cleaning/_astro/...), so an
+// anchored pattern matched nothing, the referenced set came out empty, and this
+// prune deleted the stylesheet the page depends on. The live site went up
+// unstyled. Keyed on basename, the base prefix is irrelevant.
 const referenced = new Set()
 for (const page of pages) {
   const html = readFileSync(page, 'utf8')
-  for (const m of html.matchAll(/(?:src|href)="(\/_astro\/[^"]+)"/g)) referenced.add(m[1])
+  for (const m of html.matchAll(/(?:src|href)="[^"]*\/_astro\/([^"/]+)"/g)) referenced.add(m[1])
 }
+
 let pruned = 0
 const astroDir = join(DIST, '_astro')
 if (existsSync(astroDir)) {
   for (const f of readdirSync(astroDir)) {
-    if (!referenced.has('/_astro/' + f)) {
+    if (!referenced.has(f)) {
       rmSync(join(astroDir, f))
       pruned += 1
     }
   }
+}
+
+// Whatever survives, every asset the pages ask for must actually be on disk.
+// This is the assertion that would have caught the prune bug above before it
+// shipped, rather than a visitor finding an unstyled page.
+const missingAssets = [...referenced].filter((f) => !existsSync(join(astroDir, f)))
+if (missingAssets.length) {
+  console.error('\n[honest] BUILD REJECTED\n')
+  for (const f of missingAssets) {
+    console.error(`  - pages reference /_astro/${f}, which is not in dist/_astro`)
+  }
+  console.error('')
+  process.exit(1)
+}
+if (!referenced.size) {
+  console.error('\n[honest] BUILD REJECTED: no page references any asset — the stylesheet link is missing\n')
+  process.exit(1)
 }
 
 console.log(`[honest] ${pages.length} page(s) clean — no fabricated claims, icons present, lang correct, zero JavaScript`)
