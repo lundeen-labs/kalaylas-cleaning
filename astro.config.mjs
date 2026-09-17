@@ -11,8 +11,22 @@ import react from '@astrojs/react'
  * browser. The prototype did the opposite — it shipped React's development
  * build plus Babel from a CDN and compiled JSX in the visitor's browser.
  */
+/**
+ * `site` + `base` describe where the built files will actually be served.
+ *
+ * GitHub Pages serves a project site from a subpath - /kaleylas-cleaning/ - not
+ * from the domain root. Astro prefixes the asset URLs it generates with `base`,
+ * but a hand-written href does not go through Astro, so every internal link is
+ * built from BASE_URL in src/lib/href.js instead of being hardcoded. Getting
+ * this wrong is what made an earlier Pages deploy on a sibling project 404 on
+ * every URL.
+ *
+ * Moving to a custom domain later: set `site` to that domain and `base` to '/'.
+ */
 export default defineConfig({
-  site: 'https://kaleylascleaning.com',
+  site: 'https://lundeen-labs.github.io',
+  base: '/kaleylas-cleaning',
+  trailingSlash: 'ignore',
   output: 'static',
   integrations: [react()],
   i18n: {

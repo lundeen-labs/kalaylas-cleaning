@@ -13,12 +13,18 @@ import '../styles/production.css'
 
 const { lang = 'en', title, description } = Astro.props
 
-const path = lang === 'en' ? '/' : '/es/'
-const canonical = new URL(path, site.origin).href
+// Canonical and hreflang must name the URL a visitor can actually open, which
+// on a project Pages site includes the /kaleylas-cleaning/ subpath. Astro.site
+// and BASE_URL both come from astro.config.mjs, so moving to a custom domain
+// later changes these without touching this file.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const abs = (p) => new URL(`${base}${p}`, Astro.site).href
+
+const canonical = abs(lang === 'en' ? '/' : '/es/')
 const alternates = [
-  { hreflang: 'en', href: new URL('/', site.origin).href },
-  { hreflang: 'es', href: new URL('/es/', site.origin).href },
-  { hreflang: 'x-default', href: new URL('/', site.origin).href },
+  { hreflang: 'en', href: abs('/') },
+  { hreflang: 'es', href: abs('/es/') },
+  { hreflang: 'x-default', href: abs('/') },
 ]
 
 /**

@@ -1,0 +1,80 @@
+name: Deploy to GitHub Pages
+
+# Builds the static site and publishes it. The build runs the honesty gate in
+# scripts/check-honest.mjs, so a page carrying a fabricated claim, an
+# unconfirmed legal claim, missing icons or any JavaScript never reaches the
+# live site.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          # astro 7 and @astrojs/react 6 both declare engines >= 22.12.0
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        # `npm run build` is `astro build && node scripts/check-honest.mjs`, so
+        # the honesty gate is part of the build rather than a separate step that
+        # could be skipped.
+        run: npm run build
+
+      - name: Verify output
+        # The gate above checks page CONTENT. This checks the artifact exists at
+        # all: a generator can fail in a way that still exits zero.
+        run: |
+          set -euo pipefail
+          for f in index.html es/index.html; do
+            if [ ! -s "dist/$f" ]; then
+              echo "::error::missing or empty dist/$f"
+              exit 1
+            fi
+          done
+          if ! grep -q '/kaleylas-cleaning/' dist/index.html; then
+            echo "::error::dist/index.html has no subpath-prefixed URLs - the Pages base is wrong and every link will 404"
+            exit 1
+          fi
+          echo "output verified"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    # Pull requests are built and gated, but never published.
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

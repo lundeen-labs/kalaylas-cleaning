@@ -11,6 +11,7 @@ import React from 'react'
 import * as ns from '../lib/ds.js'
 import { Container } from '../lib/parts.jsx'
 import { site, L } from '../config/site.js'
+import { href } from '../lib/href.js'
 
 export function Header({ lang }) {
   const { Logo, Button, IconButton, Icon } = ns;
@@ -36,8 +37,8 @@ export function Header({ lang }) {
                 Each locale is now its own page, so this is plain navigation and
                 needs no JavaScript. */}
             <div className="langtoggle" role="group" aria-label={L(lang, 'Language', 'Idioma')}>
-              <a href="/" aria-current={lang === 'en' ? 'page' : undefined} hrefLang="en">EN</a>
-              <a href="/es/" aria-current={lang === 'es' ? 'page' : undefined} hrefLang="es">ES</a>
+              <a href={href('/')} aria-current={lang === 'en' ? 'page' : undefined} hrefLang="en">EN</a>
+              <a href={href('/es/')} aria-current={lang === 'es' ? 'page' : undefined} hrefLang="es">ES</a>
             </div>
             {/* The prototype hard-coded (360) 555-0142. 555 is the reserved
                 fictional prefix, so the link went nowhere. */}
