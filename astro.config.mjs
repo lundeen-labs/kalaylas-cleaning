@@ -56,6 +56,18 @@ export default defineConfig({
     locales: ['en', 'es'],
     routing: { prefixDefaultLocale: false },
   },
+  /**
+   * No image optimisation, because there are no images to optimise: the site's
+   * only graphics are inline SVG and CSS. The default service pulls in sharp,
+   * a native binary whose Linux-only sub-dependencies (@emnapi/*) were missing
+   * from a lockfile generated on Windows, which broke `npm ci` on the runner.
+   * The noop service removes the work and the failure mode together.
+   *
+   * If real photography is added later, switch back to
+   * 'astro/assets/services/sharp' and regenerate the lockfile in Linux.
+   */
+  image: { service: { entrypoint: 'astro/assets/services/noop' } },
+
   build: { inlineStylesheets: 'never' },
   devToolbar: { enabled: false },
 })
