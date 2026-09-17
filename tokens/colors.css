@@ -51,9 +51,26 @@
   /* ===================== SEMANTIC ALIASES ===================== */
 
   /* Brand */
-  --brand:           var(--teal-500);
-  --brand-strong:    var(--teal-600);
-  --brand-pressed:   var(--teal-700);
+  /* ----------------------------------------------------------------------
+     Teal roles, measured against WCAG 2.1 AA (4.5:1 for normal text).
+
+     The palette below is unchanged — no new colour was invented. What changed
+     is which step each ROLE points at, because two of them were failing:
+
+       primary button   white on --teal-500  2.57:1   the main call to action
+       teal as text     --teal-600 on paper  3.41:1   eyebrows, step numbers,
+                                                      the wordmark subtitle
+
+     --teal-700 (#0C7770) clears both: 5.40:1 with white on it, and 4.79–5.40:1
+     as text on every light surface in this system (white, page, sunken,
+     brand-soft). Hue moves 175° → 174°, so it reads as the same teal.
+
+     --teal-500 stays the brand colour for decorative fills — the logo sparkle,
+     the hero glow, borders — where no text sits on it.
+     ---------------------------------------------------------------------- */
+  --brand:           var(--teal-700);  /* was teal-500: white on it was 2.57:1 */
+  --brand-strong:    var(--teal-700);  /* was teal-600: 3.41:1 as text, failed AA */
+  --brand-pressed:   var(--teal-800);  /* stays darker than the new --brand */
   --brand-deep:      var(--teal-900);
   --brand-tint:      var(--teal-100);
   --brand-tint-soft: var(--teal-50);
@@ -66,7 +83,7 @@
   --surface-sunken:   var(--neutral-100);
   --surface-raised:   var(--neutral-0);
   --surface-brand-soft: var(--teal-50);
-  --surface-brand:    var(--teal-500);
+  --surface-brand:    var(--teal-700);
   --surface-inverse:  var(--teal-900);   /* deep teal sections */
   --surface-inverse-2: #082E2D;
 
@@ -100,6 +117,6 @@
   --warning-soft: var(--amber-100);
   --danger:  var(--red-500);
   --danger-soft: var(--red-100);
-  --info: var(--teal-600);
+  --info: var(--teal-700);
   --info-soft: var(--teal-50);
 }

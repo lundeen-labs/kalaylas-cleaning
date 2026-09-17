@@ -1,0 +1,86 @@
+---
+/**
+ * Page shell for both locales.
+ *
+ * Carries the things the prototype had no way to express: a correct `lang` on
+ * the document, hreflang pointing at the other locale, a canonical URL, and
+ * LocalBusiness structured data built only from facts that are actually known.
+ */
+import { site, L } from '../config/site.js'
+import '../../styles.css'
+import '../../ui_kits/website/site.css'
+import '../styles/production.css'
+
+const { lang = 'en', title, description } = Astro.props
+
+const path = lang === 'en' ? '/' : '/es/'
+const canonical = new URL(path, site.origin).href
+const alternates = [
+  { hreflang: 'en', href: new URL('/', site.origin).href },
+  { hreflang: 'es', href: new URL('/es/', site.origin).href },
+  { hreflang: 'x-default', href: new URL('/', site.origin).href },
+]
+
+/**
+ * schema.org HouseCleaningService, built from site.js.
+ *
+ * Every optional field is omitted unless the data behind it is real. In
+ * particular `aggregateRating` and `review` are emitted only when there are
+ * genuine reviews: Google's structured-data policy treats invented review
+ * markup as spam, and the FTC treats fake testimonials as deceptive.
+ */
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HouseCleaningService',
+  name: site.name,
+  description,
+  url: canonical,
+  areaServed: site.serviceArea.map((t) => ({
+    '@type': 'City',
+    name: t,
+    address: { '@type': 'PostalAddress', addressRegion: site.region, addressCountry: site.country },
+  })),
+  availableLanguage: [
+    { '@type': 'Language', name: 'English', alternateName: 'en' },
+    { '@type': 'Language', name: 'Spanish', alternateName: 'es' },
+  ],
+  ...(site.phone ? { telephone: site.phone.href } : {}),
+  ...(site.email ? { email: site.email } : {}),
+  ...(site.address ? { address: { '@type': 'PostalAddress', ...site.address } } : {}),
+  ...(site.social.googleBusiness ? { sameAs: [site.social.googleBusiness] } : {}),
+  ...(site.rating
+    ? {
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: site.rating.value,
+          reviewCount: site.rating.count,
+        },
+      }
+    : {}),
+}
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_US' : 'en_US'} />
+    <meta property="og:site_name" content={site.name} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skiplink" href="#main">{L(lang, 'Skip to content', 'Saltar al contenido')}</a>
+    <slot />
+  </body>
+</html>

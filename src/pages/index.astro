@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro'
+import { Site } from '../components/Site.jsx'
+
+// No client:* directive, so this renders to HTML at build time and ships no JS.
+---
+<Base
+  lang="en"
+  title="Kaleyla's Cleaning Service — home & office cleaning in Mount Vernon, WA"
+  description="Family-owned home and office cleaning serving Mount Vernon and the Skagit Valley. The same friendly, bilingual team every visit."
+>
+  <Site lang="en" />
+</Base>

@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro'
+import { Site } from '../../components/Site.jsx'
+
+// Spanish is a real page with its own URL, not a toggle: it can be linked,
+// shared and indexed, which a client-side language switch cannot be.
+---
+<Base
+  lang="es"
+  title="Kaleyla's Cleaning Service — limpieza de casas y oficinas en Mount Vernon, WA"
+  description="Limpieza familiar de casas y oficinas en Mount Vernon y el Valle de Skagit. El mismo equipo bilingüe y amable, en cada visita."
+>
+  <Site lang="es" />
+</Base>

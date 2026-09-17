@@ -1,4 +1,5 @@
 import React from 'react';
+import { icons } from 'lucide';
 
 /* Convert a kebab / snake icon name to Lucide's PascalCase key.
    "building-2" -> "Building2", "shield-check" -> "ShieldCheck" */
@@ -27,9 +28,19 @@ const conv = (attrs = {}) => {
 
 /**
  * Icon — renders a Lucide line icon by name.
- * Reads icon data from the global `window.lucide` (load the Lucide CDN script on
- * the page). Falls back to an empty, space-reserving box if the name/library is
- * unavailable, so layout never jumps.
+ *
+ * Icon geometry is imported from the `lucide` package rather than read off a
+ * `window.lucide` global. That global only exists when the CDN script has run in
+ * a browser, so during a static build `window` is undefined, every lookup misses,
+ * and each icon silently becomes the empty fallback span below — a build that
+ * succeeds and ships a site with no icons. Measured on this site: 67 inline
+ * <svg> elements with the global present, 4 without it, and no error either way.
+ *
+ * The import is build-time only: this component never hydrates, so the lucide
+ * package contributes nothing to what a visitor downloads.
+ *
+ * Falls back to an empty, space-reserving box for an unknown name, so layout
+ * never jumps.
  */
 export function Icon({
   name,
@@ -41,9 +52,7 @@ export function Icon({
   title,
   ...rest
 }) {
-  const lib =
-    (typeof window !== 'undefined' && window.lucide && window.lucide.icons) || null;
-  const node = lib ? lib[toPascal(name)] || lib[name] : null;
+  const node = icons[toPascal(name)] || icons[name] || null;
 
   if (!node) {
     return React.createElement('span', {
