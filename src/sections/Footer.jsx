@@ -79,7 +79,7 @@ export function Footer({ lang }) {
           {col(L(lang, 'Company', 'Empresa'), [L(lang, 'About us', 'Nosotros'), L(lang, 'Reviews', 'Reseñas'), L(lang, 'Service area', 'Zona'), L(lang, 'Careers', 'Empleo')])}
           <div>
             <h4>{L(lang, 'Contact', 'Contacto')}</h4>
-            {/* The prototype printed (360) 555-0142 and hola@kaleylas.com. The
+            {/* The prototype printed (360) 555-0142 and hola@kalaylas.com. The
                 first is the reserved fictional prefix; the second sits on a
                 domain that does not resolve. Both now come from site.js and are
                 simply absent until they are real, because a contact detail that
@@ -92,7 +92,7 @@ export function Footer({ lang }) {
             )}
             {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
             <span className="ftr__plain">{site.city}, {site.region}</span>
-            <span className="ftr__plain">{L(lang, site.hours.en, site.hours.es)}</span>
+            <span className="ftr__plain">{L(lang, site.hours.display.en, site.hours.display.es)}</span>
           </div>
         </div>
         <div className="ftr__bottom">

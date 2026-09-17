@@ -1,5 +1,5 @@
 /* ============================================================
-   Kaleyla's Cleaning — Component styles
+   Kalayla's Cleaning — Component styles
    Interaction/state CSS for the React primitives. Shipped in the styles.css
    closure so consumers get hover/focus/active for free. Components apply these
    classes; visual contract lives here. All built on the design tokens.

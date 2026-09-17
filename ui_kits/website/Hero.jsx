@@ -1,4 +1,4 @@
-const nsHero = window.KaleylaSCleaningDesignSystem_b83ec6;
+const nsHero = window.KalaylaSCleaningDesignSystem_b83ec6;
 
 function Hero({ lang }) {
   const { Button, Icon, Avatar, Rating } = nsHero;
@@ -33,10 +33,10 @@ function Hero({ lang }) {
               </div>
             </div>
             <div className="floatcard floatcard--br">
-              <Avatar name="Kaleyla Ramirez" size="md" ring />
+              <Avatar name="Kalayla Ramirez" size="md" ring />
               <div>
                 <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--text-heading)' }}>{L(lang, 'Your team is booked', 'Equipo reservado')}</div>
-                <div style={{ fontSize: 12.5, color: 'var(--text-muted)' }}>{L(lang, 'Tue 9:00 AM · Kaleyla + Ana', 'Mar 9:00 · Kaleyla + Ana')}</div>
+                <div style={{ fontSize: 12.5, color: 'var(--text-muted)' }}>{L(lang, 'Tue 9:00 AM · Kalayla + Ana', 'Mar 9:00 · Kalayla + Ana')}</div>
               </div>
             </div>
           </div>

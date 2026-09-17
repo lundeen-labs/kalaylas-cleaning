@@ -29,13 +29,13 @@ const DIST = join(ROOT, 'dist')
 const FORBIDDEN = [
   ['555-0142', 'the prototype phone number — 555 is the reserved fictional prefix'],
   ['+13605550142', 'the prototype phone number in tel: form'],
-  ['hola@kaleylas.com', 'an address on a domain that does not resolve'],
+  ['hola@kalaylas.com', 'an address on a domain that does not resolve'],
   ['214 five-star', 'an invented review count'],
   ['214 reseñas', 'an invented review count (es)'],
   ['María G.', 'an invented testimonial'],
   ['Daniel R.', 'an invented testimonial'],
   ['S. Patel', 'an invented testimonial'],
-  ['Kaleyla + Ana', 'named a staff member who may not exist'],
+  ['Kalayla + Ana', 'named a staff member who may not exist'],
 ]
 
 /** Claims that may only appear once the owner has confirmed them. */
@@ -126,7 +126,7 @@ if (failures.length) {
 // even though no component hydrates, so nothing ever links to it. Uploading
 // 220 KB of unreachable JavaScript on every deploy is just untidy; it goes.
 // Match the FILENAME, not a path anchored at the root: on a project Pages site
-// every href is prefixed with the base (/kaleylas-cleaning/_astro/...), so an
+// every href is prefixed with the base (/kalaylas-cleaning/_astro/...), so an
 // anchored pattern matched nothing, the referenced set came out empty, and this
 // prune deleted the stylesheet the page depends on. The live site went up
 // unstyled. Keyed on basename, the base prefix is irrelevant.

@@ -1,4 +1,4 @@
-The Kaleyla's Cleaning Service brand lockup — sparkle mark plus wordmark and tagline. Use in headers, footers, login, and any branded surface.
+The Kalayla's Cleaning Service brand lockup — sparkle mark plus wordmark and tagline. Use in headers, footers, login, and any branded surface.
 
 ```jsx
 <Logo />                               // full lockup, light background

@@ -14,7 +14,7 @@ import '../styles/production.css'
 const { lang = 'en', title, description } = Astro.props
 
 // Canonical and hreflang must name the URL a visitor can actually open, which
-// on a project Pages site includes the /kaleylas-cleaning/ subpath. Astro.site
+// on a project Pages site includes the /kalaylas-cleaning/ subpath. Astro.site
 // and BASE_URL both come from astro.config.mjs, so moving to a custom domain
 // later changes these without touching this file.
 const base = import.meta.env.BASE_URL.replace(/\/$/, '')
@@ -26,6 +26,35 @@ const alternates = [
   { hreflang: 'es', href: abs('/es/') },
   { hreflang: 'x-default', href: abs('/') },
 ]
+
+/**
+ * Her published rates, flattened for the structured data below. Empty when
+ * pricing has not been filled in, which drops every price-bearing field rather
+ * than emitting a catalogue with nothing in it.
+ */
+const offers = site.pricing ? [...site.pricing.residential, ...site.pricing.commercial] : []
+
+/** One schema.org Offer per service, priced exactly as the booking page prices it. */
+const toOffer = (p) => ({
+  '@type': 'Offer',
+  itemOffered: {
+    '@type': 'Service',
+    name: (p[lang] ?? p.en).name,
+    serviceType: L(lang, 'Cleaning service', 'Servicio de limpieza'),
+  },
+  priceCurrency: site.pricing.currency,
+  // A tier marked `from` is a floor, so it is expressed as a minimum rather
+  // than as a fixed price a customer could hold us to.
+  ...(p.from
+    ? {
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          minPrice: p.price,
+          priceCurrency: site.pricing.currency,
+        },
+      }
+    : { price: p.price }),
+})
 
 /**
  * schema.org HouseCleaningService, built from site.js.
@@ -50,6 +79,44 @@ const jsonLd = {
     { '@type': 'Language', name: 'English', alternateName: 'en' },
     { '@type': 'Language', name: 'Spanish', alternateName: 'es' },
   ],
+  ...(site.hours
+    ? {
+        openingHoursSpecification: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: site.hours.days,
+            opens: site.hours.opens,
+            closes: site.hours.closes,
+          },
+        ],
+      }
+    : {}),
+  ...(offers.length
+    ? {
+        // The price band Google can surface next to the listing. Built from the
+        // real rates rather than the conventional '$$' guess.
+        priceRange: `$${Math.min(...offers.map((o) => o.price)).toLocaleString('en-US')}\u2013$${Math.max(
+          ...offers.map((o) => o.price),
+        ).toLocaleString('en-US')}`,
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: L(lang, 'Cleaning services', 'Servicios de limpieza'),
+          itemListElement: [
+            {
+              '@type': 'OfferCatalog',
+              name: L(lang, 'Home cleaning', 'Limpieza de casas'),
+              itemListElement: site.pricing.residential.map(toOffer),
+            },
+            {
+              '@type': 'OfferCatalog',
+              name: L(lang, 'Office and commercial cleaning', 'Limpieza de oficinas y comercios'),
+              itemListElement: site.pricing.commercial.map(toOffer),
+            },
+          ],
+        },
+      }
+    : {}),
+  ...(site.booking ? { potentialAction: { '@type': 'ReserveAction', target: site.booking } } : {}),
   ...(site.phone ? { telephone: site.phone.href } : {}),
   ...(site.email ? { email: site.email } : {}),
   ...(site.address ? { address: { '@type': 'PostalAddress', ...site.address } } : {}),

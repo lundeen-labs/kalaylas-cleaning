@@ -55,7 +55,7 @@ jobs:
               exit 1
             fi
           done
-          if ! grep -q '/kaleylas-cleaning/' dist/index.html; then
+          if ! grep -q '/kalaylas-cleaning/' dist/index.html; then
             echo "::error::dist/index.html has no subpath-prefixed URLs - the Pages base is wrong and every link will 404"
             exit 1
           fi

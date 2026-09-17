@@ -146,3 +146,49 @@
 .ctaband__glow {
   --brand: var(--teal-500);
 }
+
+
+/* Pricing cards -------------------------------------------------------------
+   The commercial tiers are four wide rather than three, so they get their own
+   track count and a smaller price figure; 42px across four columns wraps the
+   dollar amount onto two lines at laptop widths. */
+.plans--four { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.plans--four .plan__amt { font-size: 34px; }
+@media (max-width: 1140px) { .plans--four { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) { .plans--four { grid-template-columns: 1fr; } }
+
+/* The booking slot length, which is how the job is actually scoped. */
+.plan__dur {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.plan__dur svg { flex: none; }
+
+/* Replaces the prototype's invented feature checklist. `flex: 1` keeps the
+   book button aligned along the bottom of every card in a row. */
+.plan__blurb {
+  margin: 0;
+  flex: 1;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+.pricing__consult {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 30px 0 0;
+  font-size: 15px;
+  color: var(--text-body);
+  text-align: center;
+}
+.pricing__consult svg { color: var(--brand); flex: none; }
+.pricing__consult-link { color: var(--brand); font-weight: 600; }

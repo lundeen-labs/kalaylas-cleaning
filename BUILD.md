@@ -68,7 +68,7 @@ unreachable and every FAQ answer sealed shut.
 `npm run build` runs `scripts/check-honest.mjs`, which fails the build if:
 
 - any fabricated detail from the prototype reappears — the `555-0142` phone
-  number, `hola@kaleylas.com`, the three invented testimonials, the invented
+  number, `hola@kalaylas.com`, the three invented testimonials, the invented
   review count;
 - a trust claim appears while unconfirmed in `src/config/site.js` — "licensed &
   insured", "satisfaction guaranteed";
@@ -86,9 +86,9 @@ It then prints what is still missing before launch.
 Fill in `src/config/site.js`. Until then the site builds and is safe to publish
 — it simply leaves out what it cannot state truthfully.
 
-- **Phone** — a number Kaleyla answers. The prototype used `(360) 555-0142`;
+- **Phone** — a number Kalayla answers. The prototype used `(360) 555-0142`;
   `555` is the reserved fictional prefix, so it rang nowhere.
-- **Email** — a mailbox that receives mail. `hola@kaleylas.com` does not resolve.
+- **Email** — a mailbox that receives mail. `hola@kalaylas.com` does not resolve.
 - **Pricing** — real per-visit rates, or leave `pricing: null` and every plan
   reads "Custom" with a quote request, which is honest and still converts.
 - **Licensed, bonded, insured, background-checked** — each is a claim a customer

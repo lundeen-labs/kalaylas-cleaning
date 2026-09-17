@@ -1,4 +1,4 @@
-const nsPrice = window.KaleylaSCleaningDesignSystem_b83ec6;
+const nsPrice = window.KalaylaSCleaningDesignSystem_b83ec6;
 
 function PlanCard({ plan, lang }) {
   const { Card, Button, Badge, Icon } = nsPrice;

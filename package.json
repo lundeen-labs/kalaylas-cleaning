@@ -1,5 +1,5 @@
 {
-  "name": "kaleylas-cleaning",
+  "name": "kalaylas-cleaning",
   "version": "1.0.0",
   "description": "> Calm, trustworthy, spotless. The design system for a family-owned residential & > commercial cleaning service in Mount Vernon, Washington — serving busy households > and local businesses in English **and** Spanish.",
   "main": "_ds_bundle.js",
@@ -12,16 +12,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lundeen-labs/kaleylas-cleaning.git"
+    "url": "git+https://github.com/lundeen-labs/kalaylas-cleaning.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/lundeen-labs/kaleylas-cleaning/issues"
+    "url": "https://github.com/lundeen-labs/kalaylas-cleaning/issues"
   },
-  "homepage": "https://github.com/lundeen-labs/kaleylas-cleaning#readme",
+  "homepage": "https://github.com/lundeen-labs/kalaylas-cleaning#readme",
   "private": "true",
   "dependencies": {
     "@astrojs/react": "^6.0.6",

@@ -73,7 +73,7 @@ export function Hero({ lang }) {
                 </div>
               </div>
             )}
-            {/* Was "Tue 9:00 AM · Kaleyla + Ana", which named a staff member who
+            {/* Was "Tue 9:00 AM · Kalayla + Ana", which named a staff member who
                 may not exist and implied a booking system the business does not
                 run. Reworded to describe the promise rather than invent a booking. */}
             <div className="floatcard floatcard--br">

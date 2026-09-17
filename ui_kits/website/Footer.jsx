@@ -1,4 +1,4 @@
-const nsFoot = window.KaleylaSCleaningDesignSystem_b83ec6;
+const nsFoot = window.KalaylaSCleaningDesignSystem_b83ec6;
 
 function CTABand({ lang }) {
   const { Button, Icon } = nsFoot;
@@ -52,13 +52,13 @@ function Footer({ lang }) {
           <div>
             <h4>{L(lang, 'Contact', 'Contacto')}</h4>
             <a href="tel:+13605550142"><Icon name="phone" size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />(360) 555-0142</a>
-            <a href="mailto:hola@kaleylas.com">hola@kaleylas.com</a>
+            <a href="mailto:hola@kalaylas.com">hola@kalaylas.com</a>
             <a href="#top">Mount Vernon, WA</a>
             <a href="#top">{L(lang, 'Mon–Sat · 8am–6pm', 'Lun–Sáb · 8am–6pm')}</a>
           </div>
         </div>
         <div className="ftr__bottom">
-          <span>© 2026 Kaleyla's Cleaning Service · {L(lang, 'Licensed & insured', 'Con licencia y seguro')}</span>
+          <span>© 2026 Kalayla's Cleaning Service · {L(lang, 'Licensed & insured', 'Con licencia y seguro')}</span>
           <span>{L(lang, 'Made with care in the Skagit Valley', 'Hecho con cariño en el Valle de Skagit')}</span>
         </div>
       </Container>

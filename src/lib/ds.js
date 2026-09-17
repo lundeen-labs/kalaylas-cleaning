@@ -1,7 +1,7 @@
 /**
  * Barrel for the design system.
  *
- * The prototype reached these through `window.KaleylaSCleaningDesignSystem_b83ec6`,
+ * The prototype reached these through `window.KalaylaSCleaningDesignSystem_b83ec6`,
  * a global published by _ds_bundle.js. The components themselves were always
  * ordinary ES modules under components/ — the global only existed because the
  * browser was compiling each section in its own Babel scope with no module

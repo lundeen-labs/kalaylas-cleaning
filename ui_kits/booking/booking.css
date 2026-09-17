@@ -1,4 +1,4 @@
-/* Kaleyla's — booking / quote flow kit. Page scaffolding only. */
+/* Kalayla's — booking / quote flow kit. Page scaffolding only. */
 
 .bk { min-height: 100vh; background: var(--surface-page); display: flex; flex-direction: column; }
 .bk__top { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--surface-card) 85%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-subtle); }

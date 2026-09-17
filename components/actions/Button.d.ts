@@ -23,6 +23,6 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 /**
- * Button — primary call-to-action element for Kaleyla's surfaces.
+ * Button — primary call-to-action element for Kalayla's surfaces.
  */
 export declare function Button(props: ButtonProps): JSX.Element;

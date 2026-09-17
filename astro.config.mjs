@@ -15,7 +15,7 @@ import sitemap from '@astrojs/sitemap'
 /**
  * `site` + `base` describe where the built files will actually be served.
  *
- * GitHub Pages serves a project site from a subpath - /kaleylas-cleaning/ - not
+ * GitHub Pages serves a project site from a subpath - /kalaylas-cleaning/ - not
  * from the domain root. Astro prefixes the asset URLs it generates with `base`,
  * but a hand-written href does not go through Astro, so every internal link is
  * built from BASE_URL in src/lib/href.js instead of being hardcoded. Getting
@@ -26,7 +26,7 @@ import sitemap from '@astrojs/sitemap'
  */
 export default defineConfig({
   site: 'https://lundeen-labs.github.io',
-  base: '/kaleylas-cleaning',
+  base: '/kalaylas-cleaning',
   trailingSlash: 'ignore',
   output: 'static',
   integrations: [

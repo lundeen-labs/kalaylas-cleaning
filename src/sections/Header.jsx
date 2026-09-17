@@ -25,7 +25,7 @@ export function Header({ lang }) {
     <header className="hdr">
       <Container>
         <div className="hdr__bar">
-          <a href="#top" aria-label="Kaleyla's home" style={{ textDecoration: 'none' }}><Logo size={34} /></a>
+          <a href="#top" aria-label="Kalayla's home" style={{ textDecoration: 'none' }}><Logo size={34} /></a>
           <nav className="hdr__nav">
             {links.map(([label, href]) => (
               <a key={href} className="hdr__link" href={href}>{label}</a>

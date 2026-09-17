@@ -18,27 +18,22 @@
 /** @typedef {{ en: string, es: string }} Bilingual */
 
 export const site = {
-  name: "Kaleyla's Cleaning Service",
-  shortName: "Kaleyla's",
+  name: "Kalayla's Cleaning Service",
+  shortName: "Kalayla's",
   city: 'Mount Vernon',
   region: 'WA',
   regionName: 'Washington',
   country: 'US',
-
-  /**
-   * The canonical origin. Update when the domain is registered and pointed at
-   * the host; canonical tags, hreflang and the sitemap all derive from it.
-   */
-  origin: 'https://kaleylascleaning.com',
 
   // ---------------------------------------------------------------- contact
   // A phone number the owner actually answers. E.164 for the href, human string
   // for display. Supplied 2026-09-16.
   phone: { href: '+13603332732', display: '(360) 333-2732' },
 
-  // A mailbox that receives mail. The prototype used hola@kaleylas.com, and
-  // kaleylas.com does not resolve.
-  email: null,
+  // A mailbox that receives mail. The prototype used hola@kalaylas.com, and
+  // that domain does not resolve. This one is published on her own booking
+  // page, so it is the address she actually reads.
+  email: 'kalaylascleaning@gmail.com',
 
   /**
    * Online booking page, if the business has one — a Setmore/Calendly-style
@@ -49,15 +44,27 @@ export const site = {
    * dead <button>: with no JavaScript on the site nothing would happen, and for
    * a while every call to action on the live site did exactly that.
    */
-  booking: null,
+  booking: 'https://kalaylascleaning.setmore.com/',
 
   // Street address. Optional: many cleaning businesses are service-area only
   // and deliberately do not publish one. If the business has a Google Business
   // Profile with a hidden address, leave this null and keep `serviceArea`.
   address: null,
 
-  // Hours the phone is answered, as a plain bilingual string.
-  hours: { en: 'Mon–Sat · 8am–6pm', es: 'Lun–Sáb · 8am–6pm' },
+  /**
+   * When she is actually bookable. The prototype guessed Mon-Sat 8am-6pm; her
+   * Setmore page - the thing that controls whether a booking can be made at
+   * all - is Mon-Fri 9am-5pm, closed weekends.
+   *
+   * Structured rather than a display string so the footer and the
+   * openingHoursSpecification in the structured data cannot drift apart.
+   */
+  hours: {
+    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '17:00',
+    display: { en: 'Mon–Fri · 9am–5pm', es: 'Lun–Vie · 9am–5pm' },
+  },
 
   // Profile URLs. Anything null is simply not rendered.
   social: {
@@ -105,12 +112,81 @@ export const site = {
 
   // ------------------------------------------------------------------ pricing
   /**
-   * Per-visit pricing. Null hides the entire pricing section rather than
-   * showing numbers the owner has not set. Shape when filled:
-   *   { recurring: { weekly: 99, biweekly: 119, monthly: 149 }, currency: 'USD',
-   *     note: { en: '...', es: '...' } }
+   * Her published rates, copied from the service list on her Setmore booking
+   * page. These are the prices a customer is actually charged, so the site
+   * must not paraphrase or "round" them.
+   *
+   * `hours` is the booking slot length, which is also how the job is scoped -
+   * a deep clean is eight hours of work, not a vaguer promise of depth.
+   * `from` marks a price that is a floor rather than a fixed figure.
    */
-  pricing: null,
+  pricing: {
+    currency: 'USD',
+
+    residential: [
+      {
+        key: 'tidy',
+        price: 100,
+        hours: 3,
+        en: { name: 'Basic tidy-up', blurb: 'A reset of the rooms you use every day.' },
+        es: { name: 'Limpieza b\u00e1sica', blurb: 'Un repaso de los espacios de uso diario.' },
+      },
+      {
+        key: 'standard',
+        price: 160,
+        hours: 5,
+        featured: true,
+        en: { name: 'Spotless clean', blurb: 'The whole home, room by room, start to finish.' },
+        es: { name: 'Limpieza completa', blurb: 'Toda la casa, cuarto por cuarto, de principio a fin.' },
+      },
+      {
+        key: 'deep',
+        price: 400,
+        hours: 8,
+        en: { name: 'Deep clean', blurb: 'A full day of detail work, including what usually gets skipped.' },
+        es: { name: 'Limpieza profunda', blurb: 'Un d\u00eda entero de detalle, incluido lo que casi siempre se omite.' },
+      },
+    ],
+
+    commercial: [
+      {
+        key: 'sqft-1k',
+        price: 350,
+        hours: 8,
+        en: { name: 'Under 1,000 sq ft' },
+        es: { name: 'Menos de 1,000 pies\u00b2' },
+      },
+      {
+        key: 'sqft-5k',
+        price: 800,
+        hours: 8,
+        en: { name: '1,000\u20135,000 sq ft' },
+        es: { name: '1,000\u20135,000 pies\u00b2' },
+      },
+      {
+        key: 'sqft-10k',
+        price: 1300,
+        hours: 8,
+        en: { name: '5,000\u201310,000 sq ft' },
+        es: { name: '5,000\u201310,000 pies\u00b2' },
+      },
+      {
+        key: 'sqft-10k-plus',
+        price: 1400,
+        hours: 8,
+        from: true,
+        en: { name: 'Over 10,000 sq ft' },
+        es: { name: 'M\u00e1s de 10,000 pies\u00b2' },
+      },
+    ],
+
+    /** She offers a free 15-minute consultation. It is a real booking slot. */
+    consultation: {
+      minutes: 15,
+      en: { name: 'Consultation', blurb: 'Fifteen minutes, free, to talk through what you need.' },
+      es: { name: 'Consulta', blurb: 'Quince minutos, gratis, para hablar de lo que necesitas.' },
+    },
+  },
 
   // -------------------------------------------------------------- service area
   /**
@@ -160,9 +236,10 @@ export function outstanding() {
   const missing = []
   if (!site.phone) missing.push('phone — a number the owner answers')
   if (!site.email) missing.push('email — a mailbox that receives mail')
+  if (!site.booking) missing.push('online booking link (every quote button uses it)')
   if (!site.pricing) missing.push('pricing — per-visit rates, or decide to omit the section')
   if (!site.claims.licensedAndInsured) missing.push('confirm: licensed & insured (legal claim)')
   if (!site.social.googleBusiness) missing.push('Google Business Profile URL (drives local search)')
-  if (!site.booking) missing.push('online booking link, if she has one (the quote buttons use it)')
+  if (!site.reviews.length) missing.push('reviews — real ones, with permission; the strongest local-search signal there is')
   return missing
 }

@@ -16,6 +16,6 @@ export interface LogoProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 /**
- * Logo — Kaleyla's Cleaning Service brand lockup (sparkle mark + wordmark).
+ * Logo — Kalayla's Cleaning Service brand lockup (sparkle mark + wordmark).
  */
 export declare function Logo(props: LogoProps): JSX.Element;

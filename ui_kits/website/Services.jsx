@@ -1,4 +1,4 @@
-const nsSvc = window.KaleylaSCleaningDesignSystem_b83ec6;
+const nsSvc = window.KalaylaSCleaningDesignSystem_b83ec6;
 
 function StatsStrip({ lang }) {
   const { Stat } = nsSvc;

@@ -1,4 +1,4 @@
-const nsRev = window.KaleylaSCleaningDesignSystem_b83ec6;
+const nsRev = window.KalaylaSCleaningDesignSystem_b83ec6;
 
 function Reviews({ lang }) {
   const { Card, Avatar, Rating, Icon } = nsRev;
@@ -11,7 +11,7 @@ function Reviews({ lang }) {
   const faqs = [
     [L(lang, 'Do I need to be home during the cleaning?', '¿Tengo que estar en casa durante la limpieza?'), L(lang, 'Not at all. Most clients give us a key or entry code. Your team is background-checked and insured, and we lock up when we leave.', 'Para nada. La mayoría nos da una llave o código. Tu equipo está verificado y asegurado, y cerramos al salir.')],
     [L(lang, 'Do you bring your own supplies?', '¿Traen sus propios productos?'), L(lang, 'Yes — we bring everything, including eco-friendly products on request. Just let us know if you prefer we use yours.', 'Sí — traemos todo, incluyendo productos ecológicos a pedido. Avísanos si prefieres que usemos los tuyos.')],
-    [L(lang, 'Are you licensed and insured?', '¿Tienen licencia y seguro?'), L(lang, 'Always. Kaleyla\u2019s is fully licensed, bonded, and insured, and every cleaner is background-checked.', 'Siempre. Kaleyla\u2019s tiene licencia, fianza y seguro completos, y cada persona está verificada.')],
+    [L(lang, 'Are you licensed and insured?', '¿Tienen licencia y seguro?'), L(lang, 'Always. Kalayla\u2019s is fully licensed, bonded, and insured, and every cleaner is background-checked.', 'Siempre. Kalayla\u2019s tiene licencia, fianza y seguro completos, y cada persona está verificada.')],
     [L(lang, 'Can I get service in Spanish?', '¿Puedo recibir atención en español?'), L(lang, 'Of course. Our owners and team are fully bilingual — quotes, scheduling, and support in English or Español.', 'Claro. Nuestros dueños y equipo son totalmente bilingües — cotizaciones, horarios y soporte en inglés o español.')],
   ];
   const [open, setOpen] = React.useState(0);

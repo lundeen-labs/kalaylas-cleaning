@@ -16,7 +16,7 @@ function Sparkle({ size, c }) {
 }
 
 /**
- * Logo — the Kaleyla's Cleaning Service brand lockup.
+ * Logo — the Kalayla's Cleaning Service brand lockup.
  * `variant="mark"` renders just the sparkle; `variant="full"` adds the wordmark
  * and tagline. Use `tone="reversed"` on deep-teal backgrounds.
  */
@@ -54,7 +54,7 @@ export function Logo({
             color: c.word,
           }}
         >
-          Kaleyla's
+          Kalayla's
         </span>
         {tagline && (
           <span

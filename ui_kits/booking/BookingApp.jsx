@@ -1,4 +1,4 @@
-const NS = window.KaleylaSCleaningDesignSystem_b83ec6;
+const NS = window.KalaylaSCleaningDesignSystem_b83ec6;
 const { useState } = React;
 const L = (lang, en, es) => (lang === 'es' ? es : en);
 

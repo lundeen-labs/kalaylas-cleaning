@@ -1,4 +1,4 @@
-# Kaleyla's Cleaning Service — Design System
+# Kalayla's Cleaning Service — Design System
 
 > Calm, trustworthy, spotless. The design system for a family-owned residential &
 > commercial cleaning service in Mount Vernon, Washington — serving busy households
@@ -8,7 +8,7 @@
 
 ## 1. Brand context
 
-**Kaleyla's Cleaning Service** is a locally-owned, owner-operated cleaning company
+**Kalayla's Cleaning Service** is a locally-owned, owner-operated cleaning company
 based in **Mount Vernon, WA** (Skagit Valley). It serves two audiences:
 
 - **Residential** — recurring and one-time home cleaning for busy families who want
@@ -34,13 +34,13 @@ reconcile this system to them.
 
 ---
 
-## 2. Content fundamentals — how Kaleyla's writes
+## 2. Content fundamentals — how Kalayla's writes
 
 **Voice:** warm, plain-spoken, reassuring. We sound like a trusted neighbor who
 happens to be very good at cleaning — never a faceless corporation, never salesy.
 
 **Person & pronouns**
-- The business is **"we" / "our team" / "Kaleyla's"** — first person plural, always.
+- The business is **"we" / "our team" / "Kalayla's"** — first person plural, always.
 - The customer is **"you" / "your home" / "your team"** — second person, direct.
 - Example: *"We treat your home like it's our own."* / *"Tratamos tu casa como si fuera la nuestra."*
 
@@ -194,7 +194,7 @@ your approval — swap them anytime by supplying the real assets:
 - `tokens/` — `fonts.css`, `colors.css`, `typography.css`, `spacing.css`, `radius.css`, `shadows.css`, `motion.css`, `base.css`.
 - `components/components.css` — interaction/state styles for the primitives (shipped in the `styles.css` closure).
 - `guidelines/` — foundation specimen cards (Design System tab): brand logo & voice, color (brand / neutrals / status / surfaces), type (display / body / mono / scale), spacing / radius / shadow / motion, iconography.
-- `components/` — reusable React primitives, namespace `window.KaleylaSCleaningDesignSystem_b83ec6`:
+- `components/` — reusable React primitives, namespace `window.KalaylaSCleaningDesignSystem_b83ec6`:
   - `brand/` — **Logo**, **Icon**
   - `actions/` — **Button**, **IconButton**
   - `forms/` — **Input**, **Textarea**, **Select**, **Checkbox**, **Switch**, **Chip**

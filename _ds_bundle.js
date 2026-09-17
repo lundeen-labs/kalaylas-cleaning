@@ -1,8 +1,8 @@
-/* @ds-bundle: {"format":3,"namespace":"KaleylaSCleaningDesignSystem_b83ec6","components":[{"name":"Button","sourcePath":"components/actions/Button.jsx"},{"name":"IconButton","sourcePath":"components/actions/IconButton.jsx"},{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Card","sourcePath":"components/containers/Card.jsx"},{"name":"Tabs","sourcePath":"components/containers/Tabs.jsx"},{"name":"Avatar","sourcePath":"components/data-display/Avatar.jsx"},{"name":"Rating","sourcePath":"components/data-display/Rating.jsx"},{"name":"Stat","sourcePath":"components/data-display/Stat.jsx"},{"name":"Alert","sourcePath":"components/feedback/Alert.jsx"},{"name":"Badge","sourcePath":"components/feedback/Badge.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"Chip","sourcePath":"components/forms/Chip.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"}],"sourceHashes":{"components/actions/Button.jsx":"3ee5d4c4ffc4","components/actions/IconButton.jsx":"cd1ac5d7637a","components/brand/Icon.jsx":"265a62c00c41","components/brand/Logo.jsx":"55cd60b15c2c","components/containers/Card.jsx":"2e71462ac465","components/containers/Tabs.jsx":"4c7e2b96c267","components/data-display/Avatar.jsx":"d90b5b56062d","components/data-display/Rating.jsx":"2e032266dfef","components/data-display/Stat.jsx":"2e50c3dda73a","components/feedback/Alert.jsx":"8ee2f9cbd505","components/feedback/Badge.jsx":"19bbd8a044d5","components/forms/Checkbox.jsx":"eacbb765f6e9","components/forms/Chip.jsx":"6bc10337b822","components/forms/Input.jsx":"c118f773a18a","components/forms/Select.jsx":"fc8b9cff7f5f","components/forms/Switch.jsx":"4cf3db5e81d3","components/forms/Textarea.jsx":"a84f16c1781f","ui_kits/booking/BookingApp.jsx":"a3a09e619928","ui_kits/website/Footer.jsx":"b84688eb7b3d","ui_kits/website/Header.jsx":"834cb1531b02","ui_kits/website/Hero.jsx":"4c1d70765494","ui_kits/website/Pricing.jsx":"569a1c7d039e","ui_kits/website/Process.jsx":"3eb4188c9837","ui_kits/website/Reviews.jsx":"b32241ce6bc7","ui_kits/website/Services.jsx":"b1c9c3555a72","ui_kits/website/app.jsx":"0c04a0b6448a","ui_kits/website/parts.jsx":"ef80402e8ace"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":3,"namespace":"KalaylaSCleaningDesignSystem_b83ec6","components":[{"name":"Button","sourcePath":"components/actions/Button.jsx"},{"name":"IconButton","sourcePath":"components/actions/IconButton.jsx"},{"name":"Icon","sourcePath":"components/brand/Icon.jsx"},{"name":"Logo","sourcePath":"components/brand/Logo.jsx"},{"name":"Card","sourcePath":"components/containers/Card.jsx"},{"name":"Tabs","sourcePath":"components/containers/Tabs.jsx"},{"name":"Avatar","sourcePath":"components/data-display/Avatar.jsx"},{"name":"Rating","sourcePath":"components/data-display/Rating.jsx"},{"name":"Stat","sourcePath":"components/data-display/Stat.jsx"},{"name":"Alert","sourcePath":"components/feedback/Alert.jsx"},{"name":"Badge","sourcePath":"components/feedback/Badge.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"Chip","sourcePath":"components/forms/Chip.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"}],"sourceHashes":{"components/actions/Button.jsx":"3ee5d4c4ffc4","components/actions/IconButton.jsx":"cd1ac5d7637a","components/brand/Icon.jsx":"265a62c00c41","components/brand/Logo.jsx":"55cd60b15c2c","components/containers/Card.jsx":"2e71462ac465","components/containers/Tabs.jsx":"4c7e2b96c267","components/data-display/Avatar.jsx":"d90b5b56062d","components/data-display/Rating.jsx":"2e032266dfef","components/data-display/Stat.jsx":"2e50c3dda73a","components/feedback/Alert.jsx":"8ee2f9cbd505","components/feedback/Badge.jsx":"19bbd8a044d5","components/forms/Checkbox.jsx":"eacbb765f6e9","components/forms/Chip.jsx":"6bc10337b822","components/forms/Input.jsx":"c118f773a18a","components/forms/Select.jsx":"fc8b9cff7f5f","components/forms/Switch.jsx":"4cf3db5e81d3","components/forms/Textarea.jsx":"a84f16c1781f","ui_kits/booking/BookingApp.jsx":"a3a09e619928","ui_kits/website/Footer.jsx":"b84688eb7b3d","ui_kits/website/Header.jsx":"834cb1531b02","ui_kits/website/Hero.jsx":"4c1d70765494","ui_kits/website/Pricing.jsx":"569a1c7d039e","ui_kits/website/Process.jsx":"3eb4188c9837","ui_kits/website/Reviews.jsx":"b32241ce6bc7","ui_kits/website/Services.jsx":"b1c9c3555a72","ui_kits/website/app.jsx":"0c04a0b6448a","ui_kits/website/parts.jsx":"ef80402e8ace"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
-const __ds_ns = (window.KaleylaSCleaningDesignSystem_b83ec6 = window.KaleylaSCleaningDesignSystem_b83ec6 || {});
+const __ds_ns = (window.KalaylaSCleaningDesignSystem_b83ec6 = window.KalaylaSCleaningDesignSystem_b83ec6 || {});
 
 const __ds_scope = {};
 
@@ -211,7 +211,7 @@ function Sparkle({
 }
 
 /**
- * Logo — the Kaleyla's Cleaning Service brand lockup.
+ * Logo — the Kalayla's Cleaning Service brand lockup.
  * `variant="mark"` renders just the sparkle; `variant="full"` adds the wordmark
  * and tagline. Use `tone="reversed"` on deep-teal backgrounds.
  */
@@ -260,7 +260,7 @@ function Logo({
       letterSpacing: '-0.02em',
       color: c.word
     }
-  }, "Kaleyla's"), tagline && /*#__PURE__*/React.createElement("span", {
+  }, "Kalayla's"), tagline && /*#__PURE__*/React.createElement("span", {
     style: {
       fontFamily: 'var(--font-mono)',
       fontWeight: 600,
@@ -708,7 +708,7 @@ Object.assign(__ds_scope, { Textarea });
 
 // ui_kits/booking/BookingApp.jsx
 try { (() => {
-const NS = window.KaleylaSCleaningDesignSystem_b83ec6;
+const NS = window.KalaylaSCleaningDesignSystem_b83ec6;
 const {
   useState
 } = React;
@@ -1194,7 +1194,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.c
 
 // ui_kits/website/Footer.jsx
 try { (() => {
-const nsFoot = window.KaleylaSCleaningDesignSystem_b83ec6;
+const nsFoot = window.KalaylaSCleaningDesignSystem_b83ec6;
 function CTABand({
   lang
 }) {
@@ -1316,14 +1316,14 @@ function Footer({
       marginRight: 6
     }
   }), "(360) 555-0142"), /*#__PURE__*/React.createElement("a", {
-    href: "mailto:hola@kaleylas.com"
-  }, "hola@kaleylas.com"), /*#__PURE__*/React.createElement("a", {
+    href: "mailto:hola@kalaylas.com"
+  }, "hola@kalaylas.com"), /*#__PURE__*/React.createElement("a", {
     href: "#top"
   }, "Mount Vernon, WA"), /*#__PURE__*/React.createElement("a", {
     href: "#top"
   }, L(lang, 'Mon–Sat · 8am–6pm', 'Lun–Sáb · 8am–6pm')))), /*#__PURE__*/React.createElement("div", {
     className: "ftr__bottom"
-  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Kaleyla's Cleaning Service \xB7 ", L(lang, 'Licensed & insured', 'Con licencia y seguro')), /*#__PURE__*/React.createElement("span", null, L(lang, 'Made with care in the Skagit Valley', 'Hecho con cariño en el Valle de Skagit')))));
+  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Kalayla's Cleaning Service \xB7 ", L(lang, 'Licensed & insured', 'Con licencia y seguro')), /*#__PURE__*/React.createElement("span", null, L(lang, 'Made with care in the Skagit Valley', 'Hecho con cariño en el Valle de Skagit')))));
 }
 window.CTABand = CTABand;
 window.Footer = Footer;
@@ -1331,7 +1331,7 @@ window.Footer = Footer;
 
 // ui_kits/website/Header.jsx
 try { (() => {
-const ns = window.KaleylaSCleaningDesignSystem_b83ec6;
+const ns = window.KalaylaSCleaningDesignSystem_b83ec6;
 function Header({
   lang,
   setLang
@@ -1349,7 +1349,7 @@ function Header({
     className: "hdr__bar"
   }, /*#__PURE__*/React.createElement("a", {
     href: "#top",
-    "aria-label": "Kaleyla's home",
+    "aria-label": "Kalayla's home",
     style: {
       textDecoration: 'none'
     }
@@ -1398,7 +1398,7 @@ window.Header = Header;
 
 // ui_kits/website/Hero.jsx
 try { (() => {
-const nsHero = window.KaleylaSCleaningDesignSystem_b83ec6;
+const nsHero = window.KalaylaSCleaningDesignSystem_b83ec6;
 function Hero({
   lang
 }) {
@@ -1477,7 +1477,7 @@ function Hero({
   }, L(lang, '214 five-star reviews', '214 reseñas de 5★'))), /*#__PURE__*/React.createElement("div", {
     className: "floatcard floatcard--br"
   }, /*#__PURE__*/React.createElement(Avatar, {
-    name: "Kaleyla Ramirez",
+    name: "Kalayla Ramirez",
     size: "md",
     ring: true
   }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
@@ -1491,14 +1491,14 @@ function Hero({
       fontSize: 12.5,
       color: 'var(--text-muted)'
     }
-  }, L(lang, 'Tue 9:00 AM · Kaleyla + Ana', 'Mar 9:00 · Kaleyla + Ana'))))))));
+  }, L(lang, 'Tue 9:00 AM · Kalayla + Ana', 'Mar 9:00 · Kalayla + Ana'))))))));
 }
 window.Hero = Hero;
 })(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/website/Hero.jsx", error: String((e && e.message) || e) }); }
 
 // ui_kits/website/Pricing.jsx
 try { (() => {
-const nsPrice = window.KaleylaSCleaningDesignSystem_b83ec6;
+const nsPrice = window.KalaylaSCleaningDesignSystem_b83ec6;
 function PlanCard({
   plan,
   lang
@@ -1648,7 +1648,7 @@ window.Pricing = Pricing;
 
 // ui_kits/website/Process.jsx
 try { (() => {
-const nsProc = window.KaleylaSCleaningDesignSystem_b83ec6;
+const nsProc = window.KalaylaSCleaningDesignSystem_b83ec6;
 function Process({
   lang
 }) {
@@ -1698,7 +1698,7 @@ function Process({
     }
   }, L(lang, "Love it, or we'll make it right.", 'Te encanta, o lo corregimos.')), /*#__PURE__*/React.createElement("p", {
     className: "sh__sub"
-  }, L(lang, "If something isn't perfect, tell us within 24 hours and we'll re-clean it free. That's the Kaleyla's guarantee.", 'Si algo no quedó perfecto, dinos en 24 horas y lo limpiamos de nuevo gratis. Esa es la garantía de Kaleyla\u2019s.'))), /*#__PURE__*/React.createElement("div", {
+  }, L(lang, "If something isn't perfect, tell us within 24 hours and we'll re-clean it free. That's the Kalayla's guarantee.", 'Si algo no quedó perfecto, dinos en 24 horas y lo limpiamos de nuevo gratis. Esa es la garantía de Kalayla\u2019s.'))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
@@ -1720,7 +1720,7 @@ window.Process = Process;
 
 // ui_kits/website/Reviews.jsx
 try { (() => {
-const nsRev = window.KaleylaSCleaningDesignSystem_b83ec6;
+const nsRev = window.KalaylaSCleaningDesignSystem_b83ec6;
 function Reviews({
   lang
 }) {
@@ -1744,7 +1744,7 @@ function Reviews({
     loc: 'Sedro-Woolley'
   }];
   const towns = ['Mount Vernon', 'Burlington', 'Sedro-Woolley', 'Anacortes', 'La Conner', 'Conway', 'Bow', 'Clear Lake', 'Bayview'];
-  const faqs = [[L(lang, 'Do I need to be home during the cleaning?', '¿Tengo que estar en casa durante la limpieza?'), L(lang, 'Not at all. Most clients give us a key or entry code. Your team is background-checked and insured, and we lock up when we leave.', 'Para nada. La mayoría nos da una llave o código. Tu equipo está verificado y asegurado, y cerramos al salir.')], [L(lang, 'Do you bring your own supplies?', '¿Traen sus propios productos?'), L(lang, 'Yes — we bring everything, including eco-friendly products on request. Just let us know if you prefer we use yours.', 'Sí — traemos todo, incluyendo productos ecológicos a pedido. Avísanos si prefieres que usemos los tuyos.')], [L(lang, 'Are you licensed and insured?', '¿Tienen licencia y seguro?'), L(lang, 'Always. Kaleyla\u2019s is fully licensed, bonded, and insured, and every cleaner is background-checked.', 'Siempre. Kaleyla\u2019s tiene licencia, fianza y seguro completos, y cada persona está verificada.')], [L(lang, 'Can I get service in Spanish?', '¿Puedo recibir atención en español?'), L(lang, 'Of course. Our owners and team are fully bilingual — quotes, scheduling, and support in English or Español.', 'Claro. Nuestros dueños y equipo son totalmente bilingües — cotizaciones, horarios y soporte en inglés o español.')]];
+  const faqs = [[L(lang, 'Do I need to be home during the cleaning?', '¿Tengo que estar en casa durante la limpieza?'), L(lang, 'Not at all. Most clients give us a key or entry code. Your team is background-checked and insured, and we lock up when we leave.', 'Para nada. La mayoría nos da una llave o código. Tu equipo está verificado y asegurado, y cerramos al salir.')], [L(lang, 'Do you bring your own supplies?', '¿Traen sus propios productos?'), L(lang, 'Yes — we bring everything, including eco-friendly products on request. Just let us know if you prefer we use yours.', 'Sí — traemos todo, incluyendo productos ecológicos a pedido. Avísanos si prefieres que usemos los tuyos.')], [L(lang, 'Are you licensed and insured?', '¿Tienen licencia y seguro?'), L(lang, 'Always. Kalayla\u2019s is fully licensed, bonded, and insured, and every cleaner is background-checked.', 'Siempre. Kalayla\u2019s tiene licencia, fianza y seguro completos, y cada persona está verificada.')], [L(lang, 'Can I get service in Spanish?', '¿Puedo recibir atención en español?'), L(lang, 'Of course. Our owners and team are fully bilingual — quotes, scheduling, and support in English or Español.', 'Claro. Nuestros dueños y equipo son totalmente bilingües — cotizaciones, horarios y soporte en inglés o español.')]];
   const [open, setOpen] = React.useState(0);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Section, {
     id: "reviews"
@@ -1835,7 +1835,7 @@ window.Reviews = Reviews;
 
 // ui_kits/website/Services.jsx
 try { (() => {
-const nsSvc = window.KaleylaSCleaningDesignSystem_b83ec6;
+const nsSvc = window.KalaylaSCleaningDesignSystem_b83ec6;
 function StatsStrip({
   lang
 }) {

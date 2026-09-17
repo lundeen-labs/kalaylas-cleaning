@@ -1,4 +1,4 @@
-const nsProc = window.KaleylaSCleaningDesignSystem_b83ec6;
+const nsProc = window.KalaylaSCleaningDesignSystem_b83ec6;
 
 function Process({ lang }) {
   const { Icon } = nsProc;
@@ -37,7 +37,7 @@ function Process({ lang }) {
             <div>
               <span className="eyebrow">{L(lang, 'Our promise', 'Nuestra promesa')}</span>
               <h2 className="sh__title" style={{ marginTop: 14 }}>{L(lang, "Love it, or we'll make it right.", 'Te encanta, o lo corregimos.')}</h2>
-              <p className="sh__sub">{L(lang, "If something isn't perfect, tell us within 24 hours and we'll re-clean it free. That's the Kaleyla's guarantee.", 'Si algo no quedó perfecto, dinos en 24 horas y lo limpiamos de nuevo gratis. Esa es la garantía de Kaleyla\u2019s.')}</p>
+              <p className="sh__sub">{L(lang, "If something isn't perfect, tell us within 24 hours and we'll re-clean it free. That's the Kalayla's guarantee.", 'Si algo no quedó perfecto, dinos en 24 horas y lo limpiamos de nuevo gratis. Esa es la garantía de Kalayla\u2019s.')}</p>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
               {promises.map((p) => (
