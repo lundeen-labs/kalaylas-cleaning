@@ -8,7 +8,8 @@
     "dev": "astro dev",
     "build": "astro build && node scripts/check-honest.mjs",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "check:a11y": "node scripts/check-a11y.mjs"
   },
   "repository": {
     "type": "git",
@@ -30,5 +31,10 @@
     "lucide": "^1.46.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@axe-core/puppeteer": "^4.13.0",
+    "axe-core": "^4.13.0",
+    "puppeteer": "^25.11.0"
   }
 }

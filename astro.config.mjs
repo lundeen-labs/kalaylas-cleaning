@@ -45,9 +45,15 @@ export default defineConfig({
      * inbound links.
      */
     sitemap({
+      /*
+       * These codes must match the hreflang values in the page head exactly.
+       * They did not: the head said 'en'/'es', this said 'en-US'/'es-US', and
+       * two signals naming the same pair of URLs differently is the documented
+       * way to have an alternates cluster ignored.
+       */
       i18n: {
         defaultLocale: 'en',
-        locales: { en: 'en-US', es: 'es-US' },
+        locales: { en: 'en', es: 'es' },
       },
     }),
   ],

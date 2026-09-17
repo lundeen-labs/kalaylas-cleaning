@@ -81,29 +81,87 @@ unreachable and every FAQ answer sealed shut.
 
 It then prints what is still missing before launch.
 
-## Before it goes live
+## Where the business facts come from
 
-Fill in `src/config/site.js`. Until then the site builds and is safe to publish
-— it simply leaves out what it cannot state truthfully.
+`src/config/site.js` is the only place any of them live. Most are now filled in
+from her own Setmore booking page, <https://kalaylascleaning.setmore.com/>,
+which is the authority: it is the system that takes the booking and charges the
+price, so anything the site says that disagrees with it is wrong by definition.
 
-- **Phone** — a number Kalayla answers. The prototype used `(360) 555-0142`;
-  `555` is the reserved fictional prefix, so it rang nowhere.
-- **Email** — a mailbox that receives mail. `hola@kalaylas.com` does not resolve.
-- **Pricing** — real per-visit rates, or leave `pricing: null` and every plan
-  reads "Custom" with a quote request, which is honest and still converts.
+- **Phone** `(360) 333-2732`, **email** `kalaylascleaning@gmail.com`, and
+  **booking** the Setmore URL. Every call to action on the site resolves through
+  `quoteHref()`, which prefers booking, falls back to phone, then email, and
+  renders no button at all rather than a dead one.
+- **Hours** are `Mon–Fri 9am–5pm`, structured as days/opens/closes so the footer
+  and the `openingHoursSpecification` in the structured data cannot drift. The
+  prototype guessed Mon–Sat 8am–6pm.
+- **Pricing** mirrors her service list exactly — residential priced by depth
+  ($100 / $160 / $400) and commercial by square footage ($350 / $800 / $1,300 /
+  $1,400+), each with the booking slot length that scopes the job. The prototype
+  priced by frequency (weekly / biweekly / monthly), which is not how she
+  charges, and attached perks nobody had confirmed.
+
+Still outstanding, and `npm run build` prints these at the end of every build:
+
 - **Licensed, bonded, insured, background-checked** — each is a claim a customer
-  can act on. Set them in `site.claims` only once confirmed.
+  can act on. Set them in `site.claims` only once confirmed. These also gate
+  eligibility for Google's Local Services Ads.
 - **Reviews** — real ones, with the customer's permission, in `site.reviews`.
   Invented testimonials are deceptive advertising, and the structured data omits
   `aggregateRating` entirely until `site.rating` holds a figure from a real
-  platform.
-- **Google Business Profile URL** — the main driver of local search for a
-  business like this.
+  platform. This is also the single strongest local-search signal there is.
+- **Google Business Profile URL** — see the search section below.
 - **Photos** — the hero and service cards still show the on-brand placeholder.
+
+## What the site can and cannot do for search
+
+Worth stating plainly, because it is the most commonly oversold thing in web
+work. Google documents exactly three inputs for the local map pack — the block
+of three businesses above the blue links — in
+<https://support.google.com/business/answer/7091>: **relevance**, **distance**
+and **prominence**. A website is not one of them.
+
+It touches that system at two thin points: it corroborates relevance, and it
+feeds prominence, but Google's phrasing for prominence is "how many websites
+link to your business" — other sites linking in, not the quality of your own
+markup. So no amount of work in this repo moves map-pack position. A flawless
+site can rank nowhere in the pack; a business with no site at all can rank
+first.
+
+What this build genuinely does:
+
+- **Converts the click** once the pack or a blue link is won. That is what the
+  published pricing, the booking links and the accessibility work are for.
+- **Competes in the blue links**, where on-page relevance does count — and in
+  particular in Spanish, where a survey of Mount Vernon cleaning competitors
+  found none serving Spanish content at all, in a city that is roughly a third
+  Hispanic/Latino. The `/es/` page is hand-written Spanish, not machine
+  translation, which is what makes it eligible.
+- **Feeds the profile consistent data** — name, phone, hours and services that
+  match the Business Profile exactly, so nothing contradicts.
+
+The levers that actually move position belong to the owner: verifying and fully
+populating the Google Business Profile, accumulating real reviews steadily, and
+— if she buys liability insurance and passes the background check — Local
+Services Ads, which is a separate auction that renders above the pack.
+
+One structural choice is still open: this is one page per language, with every
+service and all nine towns on it. That is legitimate for a service-area
+business and matches Google's own `LocalBusiness` example, but it cannot
+out-rank dedicated per-service, per-city pages for queries like "office
+cleaning Burlington WA". Splitting is worth doing only with genuinely distinct
+content per page — nine near-identical town pages would be thin content and
+would hurt.
 
 ## Accessibility
 
-axe reports zero WCAG 2.1 AA violations on both locales at desktop and mobile.
+`npm run check:a11y` runs axe-core against the built `dist/` in both languages
+at phone width and fails the command on any violation. It is a gate rather than
+a one-off audit because the palette lives in CSS custom properties, where a
+token nudged for looks can silently drop text under the 4.5:1 contrast floor.
+
+Current result: **zero WCAG 2.1 AA violations on both locales**, 22 checks
+passing each.
 Getting there needed one change to `tokens/colors.css`: the primary button was
 white on `--teal-500` at **2.57:1** against a 4.5:1 requirement, and teal text
 was 3.41:1. Both roles now point at `--teal-700`, which was already in the
