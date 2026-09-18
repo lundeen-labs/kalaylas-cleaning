@@ -225,9 +225,87 @@ Everything else is permissive:
 - Honour posted **"No Soliciting"** signs as courtesy and complaint-avoidance,
   not because an ordinance requires it.
 
+### Practical placement, beyond the law
+
+None of these are ordinances. They are the standards that keep a complaint from
+becoming one.
+
+- **Doorknob only.** Not wedged in the door jamb, not under the mat. Those work
+  loose, blow across the yard, and arrive at the city as a litter complaint —
+  which is how a town that currently has no handbill ordinance ends up writing
+  one.
+- **Daylight hours.** Someone working doors after dark gets the police called
+  regardless of what is legal.
+- **Apartment complexes and gated communities are private property.** Management
+  can refuse, and ignoring a refusal is trespass, not a handbill question. Ask at
+  the office — many will say yes, and some will hand them out themselves.
+- **Nothing on parked cars.** Windshield flyers generate far more complaints per
+  piece than doors, and in some jurisdictions they are regulated separately.
+
 **The one city requirement that does touch her:** a **$50 Mount Vernon business
 license** under MVMC 5.04.030, required of any business operating in the city.
 She needs it regardless. <https://ecode360.com/50286763>
+
+---
+
+## Letting the post office deliver instead — EDDM
+
+**Every Door Direct Mail** is the USPS product for exactly this: pick carrier
+routes on a map, print the pieces, drop them at the post office, and the letter
+carrier delivers one to every address on the route. **No mailing list and no
+permit are required** for EDDM Retail.
+
+- **$0.26 per piece** postage.
+- **200 minimum, 5,000 maximum** per ZIP code per day.
+- Routes are chosen in the USPS EDDM online tool, which also shows household
+  counts and basic demographics per route.
+
+<https://www.usps.com/business/every-door-direct-mail.htm>
+
+### The catch: her door hangers do not qualify
+
+EDDM requires a **flat**, and to be a flat a mailpiece must **exceed** at least
+one of:
+
+| | |
+|---|---|
+| Length | more than **11½ inches** |
+| Height | more than **6⅛ inches** |
+| Thickness | more than **¼ inch** |
+
+Maximum is 15 inches long, 12 inches high, ¾ inch thick.
+(USPS DMM 201, Physical Standards for Flats — <https://pe.usps.com/text/dmm300/201.htm>)
+
+**A 3.5" × 8.5" door hanger fails all three.** It is letter-size, not a flat. To
+mail anything by EDDM she would need a separate, larger piece — a 6.5"×9" or
+8.5"×11" postcard is the usual choice.
+
+### What it costs against walking them
+
+For 1,000 households:
+
+| | Cost |
+|---|---|
+| **EDDM** | **$260 postage alone**, plus printing a larger postcard on top |
+| **Door hangers** | **$145** all-in, delivered |
+
+Postage by itself is nearly double the entire door-hanger campaign, before the
+printer is paid. All in, EDDM runs roughly **2.5–3×** the cost.
+
+### Which to use
+
+The trade is money against legwork, and two things decide it for a business
+starting out:
+
+1. **A door hanger is alone on the knob.** An EDDM postcard lands in a stack with
+   every other piece of advertising mail that day.
+2. **Door hangers can be aimed.** She can hang the block around a house she just
+   finished, where neighbours can see the work. EDDM buys a whole carrier route
+   whether it fits the service area or not.
+
+**Start with door hangers. EDDM is how to scale later** without hiring someone to
+walk a route — and it is the right answer the moment her time is worth more than
+the $115 difference.
 
 ---
 
