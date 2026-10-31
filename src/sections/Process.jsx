@@ -14,22 +14,37 @@ import { site, L } from '../config/site.js'
 
 export function Process({ lang }) {
   const { Icon } = ns;
+  const { claims } = site;
   const steps = [
-    ['clipboard-list', L(lang, 'Get a free quote', 'Pide tu cotización'), L(lang, 'Tell us about your space in two minutes. We reply with a fair, flat price — usually within the hour.', 'Cuéntanos sobre tu espacio en dos minutos. Respondemos con un precio justo — casi siempre en menos de una hora.')],
+    // "Usually within the hour" was a response-time promise nobody has measured,
+    // and the booking page is staffed Mon-Fri 9am-5pm. The sentence now names the
+    // hours she is actually reachable, straight from site.hours.
+    ['clipboard-list', L(lang, 'Get a free quote', 'Pide tu cotización'), L(lang,
+      `Tell us about your space in two minutes. We reply with a fair, flat price during business hours (${site.hours.display.en}).`,
+      `Cuéntanos sobre tu espacio en dos minutos. Respondemos con un precio justo y fijo en horario de atención (${site.hours.display.es}).`)],
     // "background-checked" is a claim about hiring practice; the sentence drops
     // it until site.claims.backgroundChecked is true.
-    ['calendar-check', L(lang, 'Pick a time', 'Elige un horario'), site.claims.backgroundChecked
+    ['calendar-check', L(lang, 'Pick a time', 'Elige un horario'), claims.backgroundChecked
       ? L(lang, 'Choose a day that works for you and meet your dedicated, background-checked team.', 'Elige el día que te convenga y conoce a tu equipo dedicado y verificado.')
       : L(lang, 'Choose a day that works for you and meet your dedicated team.', 'Elige el día que te convenga y conoce a tu equipo dedicado.')],
-    ['sparkles', L(lang, 'Relax', 'Relájate'), L(lang, 'Come home to clean. The same friendly team returns every visit — satisfaction guaranteed.', 'Llega a una casa limpia. El mismo equipo regresa cada visita — satisfacción garantizada.')],
+    // "satisfaction guaranteed" is a legal promise; it waits for
+    // site.claims.satisfactionGuarantee.
+    ['sparkles', L(lang, 'Relax', 'Relájate'), claims.satisfactionGuarantee
+      ? L(lang, 'Come home to clean. The same friendly team returns every visit — satisfaction guaranteed.', 'Llega a una casa limpia. El mismo equipo regresa cada visita — satisfacción garantizada.')
+      : L(lang, 'Come home to clean. The same friendly team returns every visit.', 'Llega a una casa limpia. El mismo equipo regresa cada visita.')],
   ];
+  // Every item in the "what you get" list is a claim a customer can rely on, so
+  // each one waits for the owner to confirm it in site.claims.
   const promises = [
-    // Included in the "what you get" list only once confirmed.
-    ...(site.claims.licensedAndInsured ? [L(lang, 'Licensed & insured', 'Con licencia y seguro')] : []),
-    L(lang, 'Background-checked team', 'Equipo verificado'),
-    L(lang, '24-hour re-clean guarantee', 'Re-limpieza en 24 horas'),
-    L(lang, 'Eco-friendly products on request', 'Productos ecológicos a pedido'),
+    ...(claims.licensedAndInsured ? [L(lang, 'Licensed & insured', 'Con licencia y seguro')] : []),
+    ...(claims.backgroundChecked ? [L(lang, 'Background-checked team', 'Equipo verificado')] : []),
+    ...(claims.satisfactionGuarantee ? [L(lang, '24-hour re-clean guarantee', 'Re-limpieza en 24 horas')] : []),
+    ...(claims.ecoFriendlyProducts ? [L(lang, 'Eco-friendly products on request', 'Productos ecológicos a pedido')] : []),
   ];
+  // The whole promise band is omitted while nothing in it is confirmed; an
+  // empty band under a "Love it, or we'll make it right" headline is the claim
+  // itself, so the headline is gated on the guarantee flag too.
+  const showPromise = claims.satisfactionGuarantee || promises.length > 0;
   return (
     <>
       <Section id="how" variant="soft">
@@ -48,24 +63,34 @@ export function Process({ lang }) {
         </Container>
       </Section>
 
-      <Section tight>
-        <Container>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'center' }} className="guarantee-grid">
-            <div>
-              <span className="eyebrow">{L(lang, 'Our promise', 'Nuestra promesa')}</span>
-              <h2 className="sh__title" style={{ marginTop: 14 }}>{L(lang, "Love it, or we'll make it right.", 'Te encanta, o lo corregimos.')}</h2>
-              <p className="sh__sub">{L(lang, "If something isn't perfect, tell us within 24 hours and we'll re-clean it free. That's the Kalayla's guarantee.", 'Si algo no quedó perfecto, dinos en 24 horas y lo limpiamos de nuevo gratis. Esa es la garantía de Kalayla\u2019s.')}</p>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-              {promises.map((p) => (
-                <div className="incl__item" key={p} style={{ background: 'var(--surface-card)' }}>
-                  <Icon name="shield-check" size={20} /> {p}
+      {showPromise && (
+        <Section tight>
+          <Container>
+            <div style={{ display: 'grid', gridTemplateColumns: claims.satisfactionGuarantee ? '1fr 1fr' : '1fr', gap: 48, alignItems: 'center' }} className="guarantee-grid">
+              {claims.satisfactionGuarantee ? (
+                <div>
+                  <span className="eyebrow">{L(lang, 'Our promise', 'Nuestra promesa')}</span>
+                  <h2 className="sh__title" style={{ marginTop: 14 }}>{L(lang, "Love it, or we'll make it right.", 'Te encanta, o lo corregimos.')}</h2>
+                  <p className="sh__sub">{L(lang, "If something isn't perfect, tell us within 24 hours and we'll re-clean it free. That's the Kalayla's guarantee.", 'Si algo no quedó perfecto, dinos en 24 horas y lo limpiamos de nuevo gratis. Esa es la garantía de Kalayla’s.')}</p>
                 </div>
-              ))}
+              ) : (
+                <div>
+                  <span className="eyebrow">{L(lang, 'What you get', 'Lo que recibes')}</span>
+                </div>
+              )}
+              {promises.length > 0 && (
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                  {promises.map((p) => (
+                    <div className="incl__item" key={p} style={{ background: 'var(--surface-card)' }}>
+                      <Icon name="shield-check" size={20} /> {p}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
-          </div>
-        </Container>
-      </Section>
+          </Container>
+        </Section>
+      )}
     </>
   );
 }

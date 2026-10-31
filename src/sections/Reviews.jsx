@@ -26,7 +26,9 @@ export function Reviews({ lang }) {
     [L(lang, 'Do I need to be home during the cleaning?', '¿Tengo que estar en casa durante la limpieza?'), site.claims.backgroundChecked && site.claims.licensedAndInsured
       ? L(lang, 'Not at all. Most clients give us a key or entry code. Your team is background-checked and insured, and we lock up when we leave.', 'Para nada. La mayoría nos da una llave o código. Tu equipo está verificado y asegurado, y cerramos al salir.')
       : L(lang, 'Not at all. Most clients give us a key or entry code, and we lock up when we leave.', 'Para nada. La mayoría nos da una llave o código, y cerramos al salir.')],
-    [L(lang, 'Do you bring your own supplies?', '¿Traen sus propios productos?'), L(lang, 'Yes — we bring everything, including eco-friendly products on request. Just let us know if you prefer we use yours.', 'Sí — traemos todo, incluyendo productos ecológicos a pedido. Avísanos si prefieres que usemos los tuyos.')],
+    [L(lang, 'Do you bring your own supplies?', '¿Traen sus propios productos?'), site.claims.ecoFriendlyProducts
+      ? L(lang, 'Yes — we bring everything, including eco-friendly products on request. Just let us know if you prefer we use yours.', 'Sí — traemos todo, incluyendo productos ecológicos a pedido. Avísanos si prefieres que usemos los tuyos.')
+      : L(lang, 'Yes — we bring everything. Just let us know if you prefer we use yours.', 'Sí — traemos todo. Avísanos si prefieres que usemos los tuyos.')],
     // The whole question only belongs on the page once the answer is confirmed;
     // an unanswered "are you insured?" is worse than not raising it.
     ...(site.claims.licensedAndInsured

@@ -24,7 +24,7 @@ export function CTABand({ lang }) {
               {L(lang, 'Ready for a spotless home?', '¿Listo para una casa impecable?')}
             </h2>
             <p style={{ color: 'var(--text-on-deep)', fontSize: 18, margin: '14px auto 0', maxWidth: 540 }}>
-              {L(lang, 'Get a free, no-obligation quote today — most replies within the hour.', 'Pide tu cotización gratis hoy — casi siempre respondemos en menos de una hora.')}
+              {L(lang, `Get a free, no-obligation quote — we reply during business hours (${site.hours.display.en}).`, `Pide tu cotización gratis y sin compromiso — respondemos en horario de atención (${site.hours.display.es}).`)}
             </p>
             <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 28, flexWrap: 'wrap' }}>
               {quoteHref() && (

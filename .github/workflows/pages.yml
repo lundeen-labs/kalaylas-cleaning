@@ -49,6 +49,11 @@ jobs:
         # could be skipped.
         run: npm run build
 
+      - name: Test
+        # Claim-rule unit tests plus a scan of the freshly built pages; uses only
+        # node:test, so it needs none of the omitted devDependencies.
+        run: npm test
+
       - name: Verify output
         # The gate above checks page CONTENT. This checks the artifact exists at
         # all: a generator can fail in a way that still exits zero.
