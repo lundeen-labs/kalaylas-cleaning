@@ -26,7 +26,7 @@ export function Reviews({ lang }) {
   const faqs = [
     // The answer previously asserted both "background-checked" and "insured".
     [L(lang, 'Do I need to be home during the cleaning?', '¿Tengo que estar en casa durante la limpieza?'), site.claims.backgroundChecked && site.claims.licensedAndInsured
-      ? L(lang, 'Not at all. Most clients give us a key or entry code. Your team is background-checked and insured, and we lock up when we leave.', 'Para nada. La mayoría nos da una llave o código. Tu equipo está verificado y asegurado, y cerramos al salir.')
+      ? L(lang, 'Not at all. Most clients give us a key or entry code. Your cleaner is background-checked and insured, and we lock up when we leave.', 'Para nada. La mayoría nos da una llave o código. Quien limpia tiene antecedentes verificados y seguro, y cerramos al salir.')
       : L(lang, 'Not at all. Most clients give us a key or entry code, and we lock up when we leave.', 'Para nada. La mayoría nos da una llave o código, y cerramos al salir.')],
     [L(lang, 'Do you bring your own supplies?', '¿Traen sus propios productos?'), site.claims.ecoFriendlyProducts
       ? L(lang, 'Yes — we bring everything, including eco-friendly products on request. Just let us know if you prefer we use yours.', 'Sí — traemos todo, incluyendo productos ecológicos a pedido. Avísanos si prefieres que usemos los tuyos.')
@@ -35,10 +35,10 @@ export function Reviews({ lang }) {
     // an unanswered "are you insured?" is worse than not raising it.
     ...(site.claims.licensedAndInsured
       ? [[L(lang, 'Are you licensed and insured?', '¿Tienen licencia y seguro?'), L(lang,
-          `Always. ${site.shortName} is fully licensed${site.claims.bonded ? ', bonded' : ''}, and insured${site.claims.backgroundChecked ? ', and every cleaner is background-checked' : ''}.`,
-          `Siempre. ${site.shortName} tiene licencia${site.claims.bonded ? ', fianza' : ''} y seguro${site.claims.backgroundChecked ? ', y cada persona está verificada' : ''}.`)]]
+          `Always. ${site.shortName} is fully licensed${site.claims.bonded ? ', bonded' : ''}, and insured${site.claims.backgroundChecked ? ', and your cleaner is background-checked' : ''}.`,
+          `Siempre. ${site.shortName} tiene licencia${site.claims.bonded ? ', fianza' : ''} y seguro${site.claims.backgroundChecked ? ', y quien limpia tiene antecedentes verificados' : ''}.`)]]
       : []),
-    [L(lang, 'Can I get service in Spanish?', '¿Puedo recibir atención en español?'), L(lang, 'Of course. Our owners and team are fully bilingual — quotes, scheduling, and support in English or Español.', 'Claro. Nuestros dueños y equipo son totalmente bilingües — cotizaciones, horarios y soporte en inglés o español.')],
+    [L(lang, 'Can I get service in Spanish?', '¿Puedo recibir atención en español?'), L(lang, 'Of course. We are fully bilingual — quotes, scheduling, and support in English or Español.', 'Claro. Somos totalmente bilingües — cotizaciones, horarios y soporte en inglés o español.')],
   ];
 
 

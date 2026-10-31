@@ -47,10 +47,13 @@ export function CTABand({ lang }) {
 
 export function Footer({ lang }) {
   const { Logo, Icon, IconButton } = ns;
+  // Every link is [label, target]; a column never carries a link that goes
+  // nowhere. Entries with no real page behind them (About us, Careers, Move-in /
+  // move-out) are left out rather than pointed at #top.
   const col = (title, links) => (
     <div>
       <h4>{title}</h4>
-      {links.map((l) => <a key={l} href="#top">{l}</a>)}
+      {links.map(([label, target]) => <a key={label} href={target}>{label}</a>)}
     </div>
   );
   return (
@@ -75,8 +78,8 @@ export function Footer({ lang }) {
               </div>
             )}
           </div>
-          {col(L(lang, 'Services', 'Servicios'), [L(lang, 'Home cleaning', 'Limpieza de casa'), L(lang, 'Office cleaning', 'Limpieza de oficina'), L(lang, 'Deep cleans', 'Limpieza profunda'), L(lang, 'Move-in / move-out', 'Mudanzas')])}
-          {col(L(lang, 'Company', 'Empresa'), [L(lang, 'About us', 'Nosotros'), ...(site.reviews.length ? [L(lang, 'Reviews', 'Reseñas')] : []), L(lang, 'Service area', 'Zona'), L(lang, 'Careers', 'Empleo')])}
+          {col(L(lang, 'Services', 'Servicios'), [[L(lang, 'Home cleaning', 'Limpieza de casa'), '#home-pricing'], [L(lang, 'Office cleaning', 'Limpieza de oficina'), '#office-pricing'], [L(lang, 'Deep cleans', 'Limpieza profunda'), '#home-pricing']])}
+          {col(L(lang, 'Company', 'Empresa'), [...(site.reviews.length ? [[L(lang, 'Reviews', 'Reseñas'), '#reviews']] : []), [L(lang, 'Service area', 'Zona'), '#areas']])}
           <div>
             <h4>{L(lang, 'Contact', 'Contacto')}</h4>
             {/* The prototype printed (360) 555-0142 and hola@kalaylas.com. The

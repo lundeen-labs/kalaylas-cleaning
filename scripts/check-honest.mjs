@@ -21,7 +21,7 @@ import { readFileSync, readdirSync, statSync, rmSync, existsSync } from 'node:fs
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { site, outstanding } from '../src/config/site.js'
-import { findClaimViolations } from './honest-rules.mjs'
+import { findClaimViolations, findDeadAnchors } from './honest-rules.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = join(ROOT, 'dist')
@@ -51,6 +51,7 @@ for (const page of pages) {
   const rel = page.slice(DIST.length + 1)
 
   for (const v of findClaimViolations(html, site.claims)) failures.push(`${rel}: ${v}`)
+  for (const v of findDeadAnchors(html)) failures.push(`${rel}: ${v}`)
 
   const icons = (html.match(/<svg/g) || []).length
   if (icons < MIN_ICONS) {

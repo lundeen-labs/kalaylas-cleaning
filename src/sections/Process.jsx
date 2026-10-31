@@ -25,19 +25,19 @@ export function Process({ lang }) {
     // "background-checked" is a claim about hiring practice; the sentence drops
     // it until site.claims.backgroundChecked is true.
     ['calendar-check', L(lang, 'Pick a time', 'Elige un horario'), claims.backgroundChecked
-      ? L(lang, 'Choose a day that works for you and meet your dedicated, background-checked team.', 'Elige el día que te convenga y conoce a tu equipo dedicado y verificado.')
-      : L(lang, 'Choose a day that works for you and meet your dedicated team.', 'Elige el día que te convenga y conoce a tu equipo dedicado.')],
+      ? L(lang, 'Choose a day that works for you and meet your background-checked cleaner.', 'Elige el día que te convenga y conoce a quien limpiará tu espacio, con antecedentes verificados.')
+      : L(lang, 'Choose a day that works for you, Monday to Friday, and meet the person who will clean your space.', 'Elige el día que te convenga, de lunes a viernes, y conoce a quien limpiará tu espacio.')],
     // "satisfaction guaranteed" is a legal promise; it waits for
     // site.claims.satisfactionGuarantee.
     ['sparkles', L(lang, 'Relax', 'Relájate'), claims.satisfactionGuarantee
-      ? L(lang, 'Come home to clean. The same friendly team returns every visit — satisfaction guaranteed.', 'Llega a una casa limpia. El mismo equipo regresa cada visita — satisfacción garantizada.')
-      : L(lang, 'Come home to clean. The same friendly team returns every visit.', 'Llega a una casa limpia. El mismo equipo regresa cada visita.')],
+      ? L(lang, 'Come home to clean. The same friendly cleaner returns every visit — satisfaction guaranteed.', 'Llega a una casa limpia. La misma persona regresa cada visita — satisfacción garantizada.')
+      : L(lang, 'Come home to clean. The same friendly cleaner returns every visit.', 'Llega a una casa limpia. La misma persona regresa cada visita.')],
   ];
   // Every item in the "what you get" list is a claim a customer can rely on, so
   // each one waits for the owner to confirm it in site.claims.
   const promises = [
     ...(claims.licensedAndInsured ? [L(lang, 'Licensed & insured', 'Con licencia y seguro')] : []),
-    ...(claims.backgroundChecked ? [L(lang, 'Background-checked team', 'Equipo verificado')] : []),
+    ...(claims.backgroundChecked ? [L(lang, 'Background-checked cleaner', 'Antecedentes verificados')] : []),
     ...(claims.satisfactionGuarantee ? [L(lang, '24-hour re-clean guarantee', 'Re-limpieza en 24 horas')] : []),
     ...(claims.ecoFriendlyProducts ? [L(lang, 'Eco-friendly products on request', 'Productos ecológicos a pedido')] : []),
   ];

@@ -27,7 +27,7 @@ export function StatsStrip({ lang }) {
           {site.stats.map((s) => (
             <Stat key={s.label.en} value={s.value} label={L(lang, s.label.en, s.label.es)} />
           ))}
-          <Stat value="EN · ES" label={L(lang, 'Bilingual team', 'Equipo bilingüe')} />
+          <Stat value="EN · ES" label={L(lang, 'Bilingual service', 'Servicio bilingüe')} />
         </div>
       </Container>
     </Section>
@@ -74,7 +74,7 @@ export function Services({ lang }) {
         <SectionHeading
           center
           eyebrow={L(lang, 'Residential & Commercial', 'Residencial y Comercial')}
-          title={L(lang, 'One trusted team for homes and offices', 'Un equipo de confianza para casas y oficinas')}
+          title={L(lang, 'Trusted cleaning for homes and offices', 'Limpieza de confianza para casas y oficinas')}
           sub={L(lang, 'Recurring or one-time — we tailor every clean to your space and schedule.', 'Recurrente o una vez — adaptamos cada limpieza a tu espacio y horario.')}
         />
         <div className="grid-2" style={{ marginTop: 44 }}>
@@ -92,12 +92,12 @@ export function Services({ lang }) {
           <ServiceCard
             icon="building-2"
             title={L(lang, 'Office cleaning', 'Limpieza de oficina')}
-            desc={L(lang, 'Reliable after-hours service that keeps your workplace fresh, healthy, and ready for the day.', 'Servicio confiable fuera de horario que mantiene tu lugar de trabajo fresco y listo.')}
+            desc={L(lang, 'Reliable office cleaning that keeps your workplace fresh, healthy, and ready for the day.', 'Limpieza de oficina confiable que mantiene tu lugar de trabajo fresco, saludable y listo para el día.')}
             items={[
               L(lang, 'Desks, common areas & break rooms', 'Escritorios, áreas comunes y cocinas'),
               L(lang, 'Restrooms cleaned & restocked', 'Baños limpios y surtidos'),
               L(lang, 'Floors, carpets & entryways', 'Pisos, alfombras y entradas'),
-              L(lang, 'Flexible nightly or weekly plans', 'Planes nocturnos o semanales'),
+              L(lang, 'One-time or recurring visits, by appointment', 'Visitas únicas o recurrentes, con cita'),
             ]}
           />
         </div>

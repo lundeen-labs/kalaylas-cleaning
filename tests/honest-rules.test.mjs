@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { existsSync, readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { findClaimViolations } from '../scripts/honest-rules.mjs'
+import { findClaimViolations, findDeadAnchors } from '../scripts/honest-rules.mjs'
 import { site } from '../src/config/site.js'
 
 const none = { licensedAndInsured: false, bonded: false, backgroundChecked: false, satisfactionGuarantee: false, ecoFriendlyProducts: false }
@@ -47,5 +47,34 @@ for (const page of ['index.html', 'es/index.html']) {
   test(`built ${page} carries no unconfirmed claim`, { skip: !existsSync(join(DIST, page)) && 'run npm run build first' }, () => {
     const html = readFileSync(join(DIST, page), 'utf8')
     assert.deepEqual(findClaimViolations(html, site.claims), [])
+  })
+}
+
+test('copy that implies staff or night work is rejected for a sole proprietor', () => {
+  const all = Object.fromEntries(Object.keys(none).map((k) => [k, true]))
+  const samples = [
+    'Reliable after-hours service',
+    'Flexible nightly or weekly plans',
+    'Our owners and team are fully bilingual',
+    'meet your dedicated team',
+    'The same friendly team returns every visit',
+    'Planes nocturnos o semanales',
+    'El mismo equipo, cada visita',
+    '<a href="#top">Careers</a>',
+  ]
+  for (const html of samples) {
+    assert.ok(findClaimViolations(html, all).length > 0, `not caught: ${html}`)
+  }
+})
+
+test('dead in-page links are found and live ones are not', () => {
+  const html = '<a href="#top">logo</a><section id="top"></section><a href="#reviews">r</a><a href="#top">again</a>'
+  assert.deepEqual(findDeadAnchors(html), ['links to #reviews, which is not on the page'])
+  assert.deepEqual(findDeadAnchors('<a href="#a">x</a><div id="a"></div>'), [])
+})
+
+for (const page of ['index.html', 'es/index.html']) {
+  test(`built ${page} has no dead in-page links`, { skip: !existsSync(join(DIST, page)) && 'run npm run build first' }, () => {
+    assert.deepEqual(findDeadAnchors(readFileSync(join(DIST, page), 'utf8')), [])
   })
 }
