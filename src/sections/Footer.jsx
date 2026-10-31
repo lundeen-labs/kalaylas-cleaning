@@ -76,7 +76,7 @@ export function Footer({ lang }) {
             )}
           </div>
           {col(L(lang, 'Services', 'Servicios'), [L(lang, 'Home cleaning', 'Limpieza de casa'), L(lang, 'Office cleaning', 'Limpieza de oficina'), L(lang, 'Deep cleans', 'Limpieza profunda'), L(lang, 'Move-in / move-out', 'Mudanzas')])}
-          {col(L(lang, 'Company', 'Empresa'), [L(lang, 'About us', 'Nosotros'), L(lang, 'Reviews', 'Reseñas'), L(lang, 'Service area', 'Zona'), L(lang, 'Careers', 'Empleo')])}
+          {col(L(lang, 'Company', 'Empresa'), [L(lang, 'About us', 'Nosotros'), ...(site.reviews.length ? [L(lang, 'Reviews', 'Reseñas')] : []), L(lang, 'Service area', 'Zona'), L(lang, 'Careers', 'Empleo')])}
           <div>
             <h4>{L(lang, 'Contact', 'Contacto')}</h4>
             {/* The prototype printed (360) 555-0142 and hola@kalaylas.com. The

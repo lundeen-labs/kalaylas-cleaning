@@ -18,7 +18,9 @@ export function Header({ lang }) {
   const links = [
     [L(lang, 'Services', 'Servicios'), '#services'],
     [L(lang, 'Pricing', 'Precios'), '#pricing'],
-    [L(lang, 'Reviews', 'Reseñas'), '#reviews'],
+    // The #reviews section is not rendered while site.reviews is empty, so the
+    // link to it is omitted as well rather than pointing at nothing.
+    ...(site.reviews.length ? [[L(lang, 'Reviews', 'Reseñas'), '#reviews']] : []),
     [L(lang, 'Service area', 'Zona'), '#areas'],
   ];
   return (

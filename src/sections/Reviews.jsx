@@ -20,7 +20,9 @@ export function Reviews({ lang }) {
     // customer's permission - go in site.reviews and render here instead.
     ...site.reviews.map((r) => ({ q: L(lang, r.quote.en, r.quote.es), name: r.name, loc: r.location })),
   ];
-  const towns = ['Mount Vernon', 'Burlington', 'Sedro-Woolley', 'Anacortes', 'La Conner', 'Conway', 'Bow', 'Clear Lake', 'Bayview'];
+  // The towns come from site.serviceArea so the list and the owner's confirmed
+  // service area cannot drift apart.
+  const towns = site.serviceArea;
   const faqs = [
     // The answer previously asserted both "background-checked" and "insured".
     [L(lang, 'Do I need to be home during the cleaning?', '¿Tengo que estar en casa durante la limpieza?'), site.claims.backgroundChecked && site.claims.licensedAndInsured
@@ -42,28 +44,33 @@ export function Reviews({ lang }) {
 
   return (
     <>
-      <Section id="reviews">
-        <Container>
-          <SectionHeading center eyebrow={L(lang, 'Reviews', 'Reseñas')} title={L(lang, 'Loved by Skagit families & businesses', 'Querido por familias y negocios de Skagit')} />
-          <div className="grid-3" style={{ marginTop: 44 }}>
-            {reviews.map((r) => (
-              <Card key={r.name} style={{ padding: 26 }}>
-                <div className="review">
-                  <Rating value={5} size={16} />
-                  <p className="review__quote">{`\u201C${r.q}\u201D`}</p>
-                  <div className="review__who">
-                    <Avatar name={r.name} size="md" />
-                    <div>
-                      <div className="review__name">{r.name}</div>
-                      <div className="review__loc">{r.loc}</div>
+      {/* With no real reviews the heading would sit over an empty grid, so the
+          whole section (and the nav links to it) is omitted until site.reviews
+          has something in it. */}
+      {reviews.length > 0 && (
+        <Section id="reviews">
+          <Container>
+            <SectionHeading center eyebrow={L(lang, 'Reviews', 'Reseñas')} title={L(lang, 'Loved by Skagit families & businesses', 'Querido por familias y negocios de Skagit')} />
+            <div className="grid-3" style={{ marginTop: 44 }}>
+              {reviews.map((r) => (
+                <Card key={r.name} style={{ padding: 26 }}>
+                  <div className="review">
+                    <Rating value={5} size={16} />
+                    <p className="review__quote">{`\u201C${r.q}\u201D`}</p>
+                    <div className="review__who">
+                      <Avatar name={r.name} size="md" />
+                      <div>
+                        <div className="review__name">{r.name}</div>
+                        <div className="review__loc">{r.loc}</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
 
       <Section id="areas" variant="soft">
         <Container>
