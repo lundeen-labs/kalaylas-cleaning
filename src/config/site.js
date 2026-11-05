@@ -85,6 +85,9 @@ export const site = {
     bonded: false,
     backgroundChecked: false,
     satisfactionGuarantee: false,
+    // Eco-friendly products are a product claim, not a given: false until the
+    // owner confirms the supplies she actually uses and will bring on request.
+    ecoFriendlyProducts: false,
   },
 
   /**

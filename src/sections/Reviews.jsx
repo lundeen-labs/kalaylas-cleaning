@@ -20,48 +20,57 @@ export function Reviews({ lang }) {
     // customer's permission - go in site.reviews and render here instead.
     ...site.reviews.map((r) => ({ q: L(lang, r.quote.en, r.quote.es), name: r.name, loc: r.location })),
   ];
-  const towns = ['Mount Vernon', 'Burlington', 'Sedro-Woolley', 'Anacortes', 'La Conner', 'Conway', 'Bow', 'Clear Lake', 'Bayview'];
+  // The towns come from site.serviceArea so the list and the owner's confirmed
+  // service area cannot drift apart.
+  const towns = site.serviceArea;
   const faqs = [
     // The answer previously asserted both "background-checked" and "insured".
     [L(lang, 'Do I need to be home during the cleaning?', '¿Tengo que estar en casa durante la limpieza?'), site.claims.backgroundChecked && site.claims.licensedAndInsured
-      ? L(lang, 'Not at all. Most clients give us a key or entry code. Your team is background-checked and insured, and we lock up when we leave.', 'Para nada. La mayoría nos da una llave o código. Tu equipo está verificado y asegurado, y cerramos al salir.')
+      ? L(lang, 'Not at all. Most clients give us a key or entry code. Your cleaner is background-checked and insured, and we lock up when we leave.', 'Para nada. La mayoría nos da una llave o código. Quien limpia tiene antecedentes verificados y seguro, y cerramos al salir.')
       : L(lang, 'Not at all. Most clients give us a key or entry code, and we lock up when we leave.', 'Para nada. La mayoría nos da una llave o código, y cerramos al salir.')],
-    [L(lang, 'Do you bring your own supplies?', '¿Traen sus propios productos?'), L(lang, 'Yes — we bring everything, including eco-friendly products on request. Just let us know if you prefer we use yours.', 'Sí — traemos todo, incluyendo productos ecológicos a pedido. Avísanos si prefieres que usemos los tuyos.')],
+    [L(lang, 'Do you bring your own supplies?', '¿Traen sus propios productos?'), site.claims.ecoFriendlyProducts
+      ? L(lang, 'Yes — we bring everything, including eco-friendly products on request. Just let us know if you prefer we use yours.', 'Sí — traemos todo, incluyendo productos ecológicos a pedido. Avísanos si prefieres que usemos los tuyos.')
+      : L(lang, 'Yes — we bring everything. Just let us know if you prefer we use yours.', 'Sí — traemos todo. Avísanos si prefieres que usemos los tuyos.')],
     // The whole question only belongs on the page once the answer is confirmed;
     // an unanswered "are you insured?" is worse than not raising it.
     ...(site.claims.licensedAndInsured
       ? [[L(lang, 'Are you licensed and insured?', '¿Tienen licencia y seguro?'), L(lang,
-          `Always. ${site.shortName} is fully licensed${site.claims.bonded ? ', bonded' : ''}, and insured${site.claims.backgroundChecked ? ', and every cleaner is background-checked' : ''}.`,
-          `Siempre. ${site.shortName} tiene licencia${site.claims.bonded ? ', fianza' : ''} y seguro${site.claims.backgroundChecked ? ', y cada persona está verificada' : ''}.`)]]
+          `Always. ${site.shortName} is fully licensed${site.claims.bonded ? ', bonded' : ''}, and insured${site.claims.backgroundChecked ? ', and your cleaner is background-checked' : ''}.`,
+          `Siempre. ${site.shortName} tiene licencia${site.claims.bonded ? ', fianza' : ''} y seguro${site.claims.backgroundChecked ? ', y quien limpia tiene antecedentes verificados' : ''}.`)]]
       : []),
-    [L(lang, 'Can I get service in Spanish?', '¿Puedo recibir atención en español?'), L(lang, 'Of course. Our owners and team are fully bilingual — quotes, scheduling, and support in English or Español.', 'Claro. Nuestros dueños y equipo son totalmente bilingües — cotizaciones, horarios y soporte en inglés o español.')],
+    [L(lang, 'Can I get service in Spanish?', '¿Puedo recibir atención en español?'), L(lang, 'Of course. We are fully bilingual — quotes, scheduling, and support in English or Español.', 'Claro. Somos totalmente bilingües — cotizaciones, horarios y soporte en inglés o español.')],
   ];
 
 
   return (
     <>
-      <Section id="reviews">
-        <Container>
-          <SectionHeading center eyebrow={L(lang, 'Reviews', 'Reseñas')} title={L(lang, 'Loved by Skagit families & businesses', 'Querido por familias y negocios de Skagit')} />
-          <div className="grid-3" style={{ marginTop: 44 }}>
-            {reviews.map((r) => (
-              <Card key={r.name} style={{ padding: 26 }}>
-                <div className="review">
-                  <Rating value={5} size={16} />
-                  <p className="review__quote">{`\u201C${r.q}\u201D`}</p>
-                  <div className="review__who">
-                    <Avatar name={r.name} size="md" />
-                    <div>
-                      <div className="review__name">{r.name}</div>
-                      <div className="review__loc">{r.loc}</div>
+      {/* With no real reviews the heading would sit over an empty grid, so the
+          whole section (and the nav links to it) is omitted until site.reviews
+          has something in it. */}
+      {reviews.length > 0 && (
+        <Section id="reviews">
+          <Container>
+            <SectionHeading center eyebrow={L(lang, 'Reviews', 'Reseñas')} title={L(lang, 'Loved by Skagit families & businesses', 'Querido por familias y negocios de Skagit')} />
+            <div className="grid-3" style={{ marginTop: 44 }}>
+              {reviews.map((r) => (
+                <Card key={r.name} style={{ padding: 26 }}>
+                  <div className="review">
+                    <Rating value={5} size={16} />
+                    <p className="review__quote">{`\u201C${r.q}\u201D`}</p>
+                    <div className="review__who">
+                      <Avatar name={r.name} size="md" />
+                      <div>
+                        <div className="review__name">{r.name}</div>
+                        <div className="review__loc">{r.loc}</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
 
       <Section id="areas" variant="soft">
         <Container>

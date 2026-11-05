@@ -8,7 +8,7 @@
  * reading the page in daylight on a phone.
  *
  * It runs against `dist/`, not a dev server, so what is tested is exactly what
- * gets deployed - the same files the Pages workflow uploads.
+ * gets deployed - the same files the site is published from.
  *
  * Usage: npm run check:a11y   (after npm run build)
  */

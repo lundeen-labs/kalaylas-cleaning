@@ -21,30 +21,10 @@ import { readFileSync, readdirSync, statSync, rmSync, existsSync } from 'node:fs
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { site, outstanding } from '../src/config/site.js'
+import { findClaimViolations, findDeadAnchors } from './honest-rules.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = join(ROOT, 'dist')
-
-/** Strings that must never appear in shipped HTML, and why. */
-const FORBIDDEN = [
-  ['555-0142', 'the prototype phone number — 555 is the reserved fictional prefix'],
-  ['+13605550142', 'the prototype phone number in tel: form'],
-  ['hola@kalaylas.com', 'an address on a domain that does not resolve'],
-  ['214 five-star', 'an invented review count'],
-  ['214 reseñas', 'an invented review count (es)'],
-  ['María G.', 'an invented testimonial'],
-  ['Daniel R.', 'an invented testimonial'],
-  ['S. Patel', 'an invented testimonial'],
-  ['Kalayla + Ana', 'named a staff member who may not exist'],
-]
-
-/** Claims that may only appear once the owner has confirmed them. */
-const GATED = [
-  ['Licensed &amp; insured', site.claims.licensedAndInsured, 'site.claims.licensedAndInsured'],
-  ['Con licencia y seguro', site.claims.licensedAndInsured, 'site.claims.licensedAndInsured'],
-  ['Satisfaction guaranteed', site.claims.satisfactionGuarantee, 'site.claims.satisfactionGuarantee'],
-  ['Satisfacción garantizada', site.claims.satisfactionGuarantee, 'site.claims.satisfactionGuarantee'],
-]
 
 const MIN_ICONS = 40
 
@@ -70,14 +50,8 @@ for (const page of pages) {
   const html = readFileSync(page, 'utf8')
   const rel = page.slice(DIST.length + 1)
 
-  for (const [needle, why] of FORBIDDEN) {
-    if (html.includes(needle)) failures.push(`${rel}: contains "${needle}" — ${why}`)
-  }
-  for (const [needle, allowed, flag] of GATED) {
-    if (!allowed && html.includes(needle)) {
-      failures.push(`${rel}: claims "${needle}" while ${flag} is false`)
-    }
-  }
+  for (const v of findClaimViolations(html, site.claims)) failures.push(`${rel}: ${v}`)
+  for (const v of findDeadAnchors(html)) failures.push(`${rel}: ${v}`)
 
   const icons = (html.match(/<svg/g) || []).length
   if (icons < MIN_ICONS) {

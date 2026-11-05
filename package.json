@@ -4,7 +4,7 @@
   "description": "> Calm, trustworthy, spotless. The design system for a family-owned residential & > commercial cleaning service in Mount Vernon, Washington — serving busy households > and local businesses in English **and** Spanish.",
   "main": "_ds_bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test \"tests/*.test.mjs\"",
     "dev": "astro dev",
     "build": "astro build && node scripts/check-honest.mjs",
     "preview": "astro preview",

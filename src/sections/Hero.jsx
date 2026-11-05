@@ -25,11 +25,11 @@ export function Hero({ lang }) {
               // "insured" is a claim even in running copy, so the sentence is
               // written two ways and the stronger one waits for confirmation.
               site.claims.licensedAndInsured
-                ? 'Trusted, insured cleaners for homes and offices — the same friendly, bilingual team, every visit.'
-                : 'Careful, reliable cleaning for homes and offices — the same friendly, bilingual team, every visit.',
+                ? 'Trusted, insured cleaning for homes and offices — the same friendly, bilingual cleaner, every visit.'
+                : 'Careful, reliable cleaning for homes and offices — the same friendly, bilingual cleaner, every visit.',
               site.claims.licensedAndInsured
-                ? 'Limpieza de confianza y con seguro para casas y oficinas — el mismo equipo bilingüe y amable, en cada visita.'
-                : 'Limpieza cuidadosa y confiable para casas y oficinas — el mismo equipo bilingüe y amable, en cada visita.')}
+                ? 'Limpieza de confianza y con seguro para casas y oficinas — la misma persona bilingüe y amable, en cada visita.'
+                : 'Limpieza cuidadosa y confiable para casas y oficinas — la misma persona bilingüe y amable, en cada visita.')}
             </p>
             <div className="hero__cta">
               {quoteHref() && (
@@ -79,7 +79,7 @@ export function Hero({ lang }) {
             <div className="floatcard floatcard--br">
               <span className="floatcard__mark" aria-hidden="true"><Icon name="calendar-check" size={20} /></span>
               <div>
-                <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--text-heading)' }}>{L(lang, 'The same team, every visit', 'El mismo equipo, cada visita')}</div>
+                <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--text-heading)' }}>{L(lang, 'The same cleaner, every visit', 'La misma persona, cada visita')}</div>
                 <div style={{ fontSize: 12.5, color: 'var(--text-muted)' }}>{L(lang, 'On a schedule that suits you', 'En el horario que te acomode')}</div>
               </div>
             </div>
