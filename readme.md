@@ -1,5 +1,7 @@
 # Kalayla's Cleaning Service — Design System
 
+No CI: GitHub Actions was removed on 2026-11-04 (Tyler's decision; version control only). Run the checks locally: `npm run build` (build plus honesty gate), `npm test`, `npm run check`, `npm run check:a11y`.
+
 > Calm, trustworthy, spotless. The design system for a family-owned residential &
 > commercial cleaning service in Mount Vernon, Washington — serving busy households
 > and local businesses in English **and** Spanish.
